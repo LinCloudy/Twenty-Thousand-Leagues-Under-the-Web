@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../echarts.min.js"></script>
+</head>
+<body>
+<div id="line" style="width: 800px;height: 350px;"></div>
+<script>
+    var myChart = echarts.init(document.getElementById('line'));
+    var option = {
+        title: {
+            text: '',
+            subtext: '',
+            // x 设置水平安放位置，默认左对齐，可选值：'center' ¦ 'left' ¦ 'right' ¦ {number}（x坐标，单位px）
+            x: 'center',
+            // y 设置垂直安放位置，默认全图顶端，可选值：'top' ¦ 'bottom' ¦ 'center' ¦ {number}（y坐标，单位px）
+            y: 'top',
+            // itemGap设置主副标题纵向间隔，单位px，默认为10，
+            itemGap: 30,
+            backgroundColor: '#EEE',
+            // 主标题文本样式设置
+            textStyle: {
+                fontSize: 26,
+                fontWeight: 'bolder',
+                color: '#CECECE'
+            },
+            // 副标题文本样式设置
+            subtextStyle: {
+                fontSize: 18,
+                color: '#CECECE'
+            }
+        },
+        backgroundColor: '#FBFBFB',
+        tooltip: {
+            trigger: 'axis'
+        },
+        legend: {
+            top: 28,
+            left:'center',
+            data: ['充值', '消费']
+        },
+
+        animationDuration: 3000,        //渲染时长
+
+        calculable: true,
+
+        xAxis: {
+            /*
+            * 'value' 数值轴，适用于连续数据
+            * 'category' 类目轴，适用于离散的类目数据，为该类型时必须通过 data 设置类目数据
+            * 'time' 时间轴，适用于连续的时序数据，与数值轴相比时间轴带有时间的格式化，在刻度计算上也有所不同，例如会根据跨度的范围来决定使用月，星期，日还是小时范围的刻度
+            * 'log' 对数轴。适用于对数数据
+            * */
+            type: 'category',       //x轴坐标轴类型
+            boundaryGap: false,     //从0刻度开始/坐标轴两边留白
+            axisLine: {//坐标轴
+                lineStyle:{
+                    opacity: 0.01,//设置透明度就可以控制显示不显示
+                    color: '#CECECE'
+                },
+            },
+            axisLabel: {
+                rotate: 30,
+                interval: 0
+            },
+            splitLine: {    //网格线
+                show: false,    //网格线
+                lineStyle:{
+                    color: '#eeeeee',
+                },
+            },
+            axisTick: {//刻度线
+                show: false,//去掉刻度线
+            },
+            data: function() {
+                var list = [];
+                for (var i = 10; i < 18; i++) {
+                    if (i <= 12) {
+                        list.push('2016-' + i + '-01');
+                    } else {
+                        list.push('2017-' + (i - 12) + '-01');
+                    }
+                }
+                return list;
+            }()
+        },
+
+        yAxis: {
+            type: 'value',
+            name:'￥         ',//是基于Y轴线对齐，用空格站位让坐标轴名称与刻度名称对齐
+            nameTextStyle: {
+                color: '#CECECE',
+                align:'left',//文字水平对齐方式
+                verticalAlign:'middle',//文字垂直对齐方式
+            },
+            axisTick: {//刻度线
+                show: false,//去掉刻度线
+            },
+            axisLine: {//坐标轴线
+                lineStyle:{
+                    opacity: 0,//透明度为0
+                    color: '#CECECE'
+                },
+            },
+            splitLine: {//网格线
+                // show: false,//网格线
+                lineStyle:{
+                    color: '#eeeeee',
+                },
+            },
+        },
+        series: [{
+            name: '充值',
+            type: 'line',
+            label: {//图形上的文本标签
+                normal:{
+                    formatter: '{@data}元',
+                    show: false,//显示数据
+                    color: ['#66AEDE'],
+                    position: 'top',
+                    fontSize:'14',
+                },
+            },
+            itemStyle: {//折线样式
+                normal: {
+                    color: ['#66AEDE'],
+                },
+            },
+            areaStyle: {//区域填充样式
+                normal:{
+                    color: {
+                        type:'linear',
+                        x: 0,
+                        y: 0,
+                        x2: 0,
+                        y2: 1,
+                        colorStops: [
+                            {
+                                offset: 0,
+                                color: 'rgba(0, 175, 88, 0.4)',
+                            },
+                            {
+                                offset: 1,
+                                color: 'rgba(0, 175, 88, 0.01)',
+                            },
+                        ],
+                        globaCoord: false,
+                    },
+                },
+            },
+            symbol: 'none',
+            smooth: 0.3,
+            data: [800, 300, 500, 800, 300, 600, 500, 600]
+        }, {
+            name: '消费',
+            type: 'line',
+            symbol: 'none',
+            smooth: 0.3,
+            color: ['#90EC7D'],
+            data: [600, 300, 400, 200, 300, 300, 200, 400]
+        }]
+    };
+    myChart.setOption(option);
+</script>
+</body>
+</html>

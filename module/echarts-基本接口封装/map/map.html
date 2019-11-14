@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义geoJson地图</title>
+    <script src="../echarts.min.js"></script>
+    <script src="../../../common/jquery-1.8.0.js"></script>
+</head>
+<body>
+<div id="map" style="height: 500px; width: 500px"></div>
+<script>
+    /*Tip：geoJson格式文件要和echarts放在同一级目录*/
+    $(function(){
+        var myChart = echarts.init(document.getElementById('map'));
+        $.get('../jxau.json',function(geoJson){
+            echarts.registerMap('jxau',geoJson,{});
+            var option = {
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '{b}<br/>{c} (p / m2)'
+                },
+                series: [{
+                    type: 'map', //类型必须是map
+                    map: 'jxau',
+                    zoom:1.1,
+                    itemStyle: {
+                        normal: {
+                            color: function(params) {
+                                var colorList = [
+                                    '#a5b8e0', '#8cdef3', '#e1bfa6', '#77be7c',
+                                    '#e0d3a6', '#dda778', '#e3a6ec','#93e4a9',
+                                    '#d9ec93', '#dcbbea','#F4E001', '#F0805A', '#26C0C0'
+                                ];
+                                return colorList[params.dataIndex];
+                            },
+                            label: {
+                                show: true,
+                                fontSize:15,
+                                textStyle: {
+                                    color: "rgb(249, 249, 249)",
+                                }
+                            },
+                            borderColor: "#fff",
+                            borderWidth:2,
+
+                        },
+                        emphasis:{
+                            areaColor: "red",
+                            borderColor: '#fff',
+                            areaStyle: {
+                                color: '#fff'
+                            },
+                            label:{
+                                show:true,
+                                color:'#fff',
+                                fontSize:20,
+                                position: ['50%', '50%'],
+                            }
+                        }
+
+                    },
+                    data: [
+                        {name: '翠湖', value: 17000},
+                        {name: '教学楼区', value: 1000},
+                        {name: '居民区', value: 5000},
+                        {name: '快活林', value: 20000},
+                        {name: '校医院', value: 25000},
+                        {name: '大学生活动中心', value: 30000},
+                        {name: '体育馆', value: 18000},
+                        {name: '北区田径场', value: 2300},
+                        {name: '小树林', value: 20000},
+                        {name: '南区', value: 120000}
+                    ]
+                }]
+            };
+            myChart.setOption(option);
+        });
+    });
+</script>
+</body>
+</html>

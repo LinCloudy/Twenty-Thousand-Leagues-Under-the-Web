@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../echarts.min.js"></script>
+    <script src="../eChartsHelper.js"></script>
+</head>
+<body>
+<div id="bar" style="width: 800px;height: 350px;"></div>
+<script>
+    var totalVolunteersInCity = [625523,427660,169520,212874,316652,161592,873975,778526,626138,677142,321412];
+    var totalVolunteerActivityNumInCity = [49691,13551,14444,696,2189,6242,38771,26915,13601,31345,15640];
+    var totalServiceTimeInCity = [1160772281,467833521,200810838,7102580,704257682,459754070,1363671540,946802010,777708980,1351974786,652615260];
+    for(var i = 0; i < totalServiceTimeInCity.length; i++){
+        totalServiceTimeInCity[i] = Math.round(totalServiceTimeInCity[i]/60);
+    }
+    var series = [{
+        name:'志愿者人数',
+        data:totalVolunteersInCity
+    }, {
+        name:'志愿时',
+        data:totalVolunteersInCity
+    }];
+    var data = {
+        series: series
+    };
+    var chartConfig = {
+        title: {
+            text: '江西省志愿者人数及志愿时长统计',
+        },
+        xAxis: {
+            data :['1','2','3','4','5','6','7','8','9','10','11'],
+        },
+        legend: {
+            data:['志愿者人数','志愿时'],
+        }
+    };
+    buildBarChart("bar", data, chartConfig);
+</script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../echarts.min.js"></script>
+</head>
+<body>
+<div id="bar" style="width: 800px;height: 350px;"></div>
+<script>
+    var totalVolunteersInCity = [625523,427660,169520,212874,316652,161592,873975,778526,626138,677142,321412];
+    var totalVolunteerActivityNumInCity = [49691,13551,14444,696,2189,6242,38771,26915,13601,31345,15640];
+    var totalServiceTimeInCity = [1160772281,467833521,200810838,7102580,704257682,459754070,1363671540,946802010,777708980,1351974786,652615260];
+    for(var i = 0; i < totalServiceTimeInCity.length; i++){
+        totalServiceTimeInCity[i] = Math.round(totalServiceTimeInCity[i]/60);
+    }
+    var myChart = echarts.init(document.getElementById('bar'));
+    var option = {
+        title: {
+            text: '江西省志愿者人数及志愿时长统计',
+            textStyle: {
+                //设置主标题字体颜色
+                color: "#90E5E7"
+            },
+            subtext: ""     //副标题
+        },
+        backgroundColor: "",
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c}"
+        },
+        grid:{
+            top:60,
+            right:70,
+            bottom:30,
+            left:60
+        },
+        legend: {
+            top:32,
+            left:'center',
+            textStyle:{     //字体样式
+                fontSize:"8px",
+                color:"#a7aab3",
+                align:"center"
+            },
+            data:['志愿者人数','志愿时']
+        },
+        calculable : true,
+        xAxis : [
+            {
+                type : 'category',
+                axisLabel:{
+                    show:true,
+                    textStyle:{     //x轴字体样式
+                        fontSize:"8px",
+                        color:"#a7aab3",
+                        align:"center"
+                    },
+                    formatter:function(e){
+                        return e;
+                    },
+                    margin: 12,//刻度标签与轴线之间的距离
+                },
+                axisLine: {
+                    show: false,     //x轴
+                    lineStyle:{
+                        color:"#a7aab3"     //x轴颜色
+                    }
+                },
+                axisTick:{          //x轴小刻度线
+                    show: false,
+                },
+                data : ['1','2','3','4','5','6','7','8','9','10','11']
+            }
+        ],
+        yAxis : [
+            {
+                type: 'value',
+                name:"",    //Y轴含义以及单位
+                nameLocation:"center",
+                nameGap:35,
+                nameRotate:0,
+                nameTextStyle:{
+                    fontSize: 16,
+                },
+                //interval: 5000,
+                axisLine: {
+                    show: false,     //y轴
+                },
+                axisTick: {
+                    show: false     //刻度线
+                },
+                splitLine: {
+                    show: true      //网格线
+                },
+                axisLabel : {   //调整左侧Y轴刻度， 直接按对应数据显示
+                    show:true,
+                    textStyle:{
+                        color:"#a7aab3"//y轴的数字颜色
+                    },
+                    showMinLabel:true,
+                    showMaxLabel:true,
+                    formatter: function(value,index){
+                        var value;
+                        if (value >= 10000) {
+                            value = value/10000+'k';
+                        }else if(value < 10000){
+                            value = value;
+                        }
+                        return value
+                    }
+                }
+            },
+            {
+                type: 'value',
+                name:"",    //Y轴含义以及单位
+                nameLocation:"center",
+                nameGap:50,
+                nameRotate:0,
+                nameTextStyle:{
+                    fontSize: 16,
+                },
+                //interval: 500000,
+                axisLine: {
+                    show: false     //y轴
+                },
+                axisTick: {
+                    show: false     //刻度线
+                },
+                splitLine: {
+                    show: true      //网格线
+                },
+                axisLabel : {   //调整左侧Y轴刻度， 直接按对应数据显示
+                    show:true,
+                    textStyle:{
+                        color:"#a7aab3"//x轴，y轴的数字颜色
+                    },
+                    showMinLabel:true,
+                    showMaxLabel:true,
+                    formatter: function(value,index){
+                        var value;
+                        if (value >= 10000) {
+                            value = value/10000+'k';
+                        }else if(value < 10000){
+                            value = value;
+                        }
+                        return value
+                    }
+                }
+            }
+        ],
+        series: [{
+            name: '志愿者人数',
+            type:'bar',          //特别指出图表类型
+            barWidth: "13",     //设置柱状图宽度
+            yAxisIndex: 0,      // 注意要在这里显示设置一下
+            data: totalVolunteersInCity,
+            itemStyle: {
+                normal: {
+                    //柱形图圆角，顺时针左上，右上，右下，左下）
+                    barBorderRadius: [12, 12, 12, 12],
+                    // 线性渐变，前四个参数分别是 x0, y0, x2, y2, 范围从 0 - 1，相当于在图形包围盒中的百分比，
+                    // 如果 globalCoord 为 `true`，则该四个值是绝对的像素位置
+                    color: {
+                        type: 'linear',
+                        x: 0,
+                        y: 0,
+                        x2: 0,
+                        y2: 1,
+                        colorStops: [{
+                            offset: 0,
+                            color: "#f75d5d"
+                        }, {
+                            offset: 1,
+                            color: "#f0caca"
+                        }],
+                        globalCoord: false // 缺省为 false
+                    }
+                }
+            }
+        },{
+            name: '志愿时',
+            type:'bar',
+            barWidth: "13",     //设置柱状图宽度
+            barGap:"100%",      //柱状图间距
+            yAxisIndex: 1,
+            data: totalServiceTimeInCity,
+            itemStyle: {
+                normal: {
+                    // 统一设置四个角的圆角大小
+                    barBorderRadius: 12,
+                    //设置柱状图颜色渐变
+                    color: {
+                        type: 'linear',
+                        x: 0,
+                        y: 0,
+                        x2: 0,
+                        y2: 1,
+                        colorStops: [{
+                            offset: 0,
+                            color: "#5ad9e8"
+                        }, {
+                            offset: 1,
+                            color: "#caecf0"
+                        }],
+                        globalCoord: false // 缺省为 false
+                    }
+                }
+            }
+        }]
+    };
+    myChart.setOption(option);
+</script>
+</body>
+</html>

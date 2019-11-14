@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../echarts.min.js"></script>
+    <script src="../eChartsHelper.js"></script>
+</head>
+<body>
+<div id="pie" style="width: 800px;height: 350px;"></div>
+<script>
+    var series = [{
+        data:[
+            {value:17, name:'走位'},
+            {value:23, name:'补刀'},
+            {value:27, name:'游走'},
+            {value:33, name:'意识'},
+            {value:9, name:'手速'}
+        ],
+    }];
+    var data = {
+        series: series
+    };
+    var chartConfig = {
+        title: {
+            text: 'LOL征服之海某选手综合能力',
+        }
+    };
+    buildPieChart("pie", data, chartConfig);
+</script>
+</body>
+</html>

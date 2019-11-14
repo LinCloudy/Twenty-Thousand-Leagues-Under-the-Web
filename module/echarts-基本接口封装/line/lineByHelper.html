@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../echarts.min.js"></script>
+    <script src="../eChartsHelper.js"></script>
+</head>
+<body>
+<div id="line" style="width: 800px;height: 350px;"></div>
+<script>
+    var series = [{
+        name: '充值',
+        data: [800, 300, 500, 800, 300, 600, 500, 600]
+    }, {
+        name: '消费',
+        data: [600, 300, 400, 200, 300, 300, 200, 400]
+    }];
+    var data = {
+        series: series
+    };
+    var chartConfig = {
+        title: {
+            text: '',
+        },
+        xAxis: {
+            data :['2019-1','2019-2','2019-3','2019-4','2019-5','2019-6','2019-7','2019-8']
+        },
+        yAxis: {
+            name : "￥         "
+        },
+        legend: {
+            data:['充值', '消费'],
+        }
+    };
+    buildLineChart("line", data, chartConfig);
+</script>
+</body>
+</html>

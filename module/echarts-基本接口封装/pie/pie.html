@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../echarts.min.js"></script>
+</head>
+<body>
+<div id="pie" style="width: 800px;height: 350px;"></div>
+<script>
+    var myChart = echarts.init(document.getElementById("pie"));
+    var  colorList=['#afa3f5', '#00d488', '#3feed4', '#3bafff', '#f1bb4c', "rgba(250,250,250,0.5)"];
+    var option = {
+        title: {
+            text: '80',
+            subtext: '总平均值(分)',
+            x: 'center',
+            y: 'top',
+            textStyle: {
+                fontSize:30,
+                fontWeight:'normal',
+                color: ['#333']
+            },
+            subtextStyle: {
+                color: '#666',
+                fontSize: 16
+            },
+        },
+        grid: {
+            bottom: 150,
+            left: 0,
+            right: '10%'
+        },
+        legend: {
+            show:false,
+            orient: 'vertical',
+            top: "middle",
+            right: "5%",
+            textStyle: {
+                color: '#f2f2f2',
+                fontSize: 25,
+
+            },
+            icon: 'roundRect'
+        },
+        tooltip: {
+            // trigger 设置触发类型，默认数据触发，可选值：'item' ¦ 'axis'
+            trigger: 'item',
+            showDelay: 20,   // 显示延迟，添加显示延迟可以避免频繁切换，单位ms
+            hideDelay: 20,   // 隐藏延迟，单位ms
+            backgroundColor: 'white',  // 提示框背景颜色
+            textStyle: {
+                fontSize: '16px',
+                color:"#a7aab3",  // 设置文本颜色 默认#FFF
+            },
+            // formatter设置提示框显示内容
+            // {a}指series.name  {b}指series.data的name
+            // {c}指series.data的value  {d}%指这一部分占总数的百分比
+            formatter: "{a} <br/>{b}: {c} ({d}%)"
+        },
+        series: [
+            // 主要展示层的
+            {
+                radius: ['25%', '51%'],
+                center: ['50%', '50%'],
+                type: 'pie',
+                itemStyle: {
+                    normal: {
+                        color: function(params) {
+                            return colorList[params.dataIndex]
+                        }
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        show: true,
+                        length: 12,
+                        length2: 36,
+                        /*lineStyle: {
+                            color: '#d3d3d3'
+                        },*/
+                        align: 'right'
+                    },
+                    emphasis: {
+                        show: true
+                    }
+                },
+                label:{
+                    normal:{
+                        formatter: function(params){
+                            var str = '';
+                            switch(params.name){
+                                case '体育技能':str = '{a|}\n{nameStyle|体育技能 }';break;
+                                case '体育行为':str = '{b|}\n{nameStyle|体育行为 }';break;
+                                case '体质健康':str = '{c|}\n{nameStyle|体质健康 }';break;
+                                case '体育意识':str = '{d|}\n{nameStyle|体育意识 }';break;
+                                case '体育知识':str = '{e|}\n{nameStyle|体育知识 }';break;
+                            }
+                            return str
+                        },
+                        height: 32,
+                        rich: {
+                            nameStyle: {
+                                fontSize: 12,
+                                color: "#000000",
+                                fontWeight:"bold",
+                                align: 'left'
+                            },
+                            rate: {
+                                fontSize: 20,
+                                color: "#1ab4b8",
+                                align: 'left'
+                            }
+                        }
+                    },
+                },
+                data: [
+                    {
+                        value:17,
+                        name:'体育技能',
+                    },
+                    {value:23, name:'体育行为'},
+                    {value:27, name:'体质健康'},
+                    {value:33, name:'体育意识'},
+                    {value:9, name:'体育知识'}],
+            },
+            // 边框效果
+            {
+                radius: ['47%', '51%'],
+                center: ['50%', '50%'],
+                type: 'pie',
+                label: {
+                    normal: {
+                        show: false
+                    },
+                    emphasis: {
+                        show: false
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        show: false
+                    },
+                    emphasis: {
+                        show: false
+                    }
+                },
+                animation: false,
+                tooltip: {
+                    show: false
+                },
+                itemStyle: {
+                    normal: {
+                        color:'rgba(250,250,250,0.5)'
+                    }
+                },
+                data: [{
+                    value: 1,
+                }],
+            }
+        ]
+    };
+    myChart.setOption(option);
+</script>
+</body>
+</html>
