@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>自定义geoJson地图</title>
-    <script src="../echarts.min.js"></script>
+    <script src="../../../common/echarts.min.js"></script>
     <script src="../../../common/jquery-1.8.0.js"></script>
 </head>
 <body>
@@ -12,7 +12,7 @@
     /*Tip：geoJson格式文件要和echarts放在同一级目录*/
     $(function(){
         var myChart = echarts.init(document.getElementById('map'));
-        $.get('../jxau.json',function(geoJson){
+        $.get('../../../common/jxau.json',function(geoJson){
             echarts.registerMap('jxau',geoJson,{});
             var option = {
                 tooltip: {
