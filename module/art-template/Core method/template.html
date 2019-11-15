@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../../common/template-web.js"></script>
+</head>
+<body>
+<div id="content"></div>
+
+<script type="text/html" id="template">
+    <ul>
+        {{each list value index}}
+            <li>索引 {{index + 1}} ：{{value}}</li>
+        {{/each}}
+    </ul>
+</script>
+
+<script>
+    var data = {list: ['摄影', '电影', '民谣', '旅行', '吉他']};
+    //模板方法遍历
+    // render template basing on template name
+    //template(filename, data);
+    var html = template("template", data);
+    document.getElementById('content').innerHTML = html;
+
+</script>
+</body>
+</html>
