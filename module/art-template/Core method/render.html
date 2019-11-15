@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../../common/template-web.js"></script>
+</head>
+<body>
+<div id="content"></div>
+<script type="text/javascript">
+    //模板放在js脚本
+    var source = '<ul>'
+        +    '{{each list value index}}'
+        +        '<li>索引 {{index + 1}} ：{{value}}</li>'
+        +    '{{/each}}'
+        + '</ul>';
+
+
+    var data = ({
+        list: ['摄影', '电影', '民谣', '旅行', '吉他']
+    });
+    // compile source of template as function and immediately invoke it
+    //template.render(source, data, options)  options可选，通常不传, 编译并返回渲染结果
+    var html = template.render(source,data);
+    document.getElementById('content').innerHTML = html;
+</script>
+</body>
+</html>

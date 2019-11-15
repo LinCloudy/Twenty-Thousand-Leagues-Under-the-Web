@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../../common/template-web.js"></script>
+</head>
+<body>
+<div id="content"></div>
+<script type="text/javascript">
+    //和template()方法的区别在于，template.compile()将渲染模板用字符串拼接实现，而前者是用script标签来展示，前者更为直观
+    //模板放在js脚本
+    var source = '<ul>'
+        +    '{{each list value index}}'
+        +        '<li>索引 {{index + 1}} ：{{value}}</li>'
+        +    '{{/each}}'
+        + '</ul>';
+    // compile source of template as function
+    //template.compile(source, options)  options可选，通常不传, 编译模板并返回一个渲染函数
+    var render = template.compile(source);
+    var html = render({
+        list: ['摄影', '电影', '民谣', '旅行', '吉他']
+    });
+
+    document.getElementById('content').innerHTML = html;
+</script>
+</body>
+</html>
