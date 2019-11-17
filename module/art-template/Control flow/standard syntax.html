@@ -29,7 +29,7 @@
     <h1>{{item.title}}</h1>
     <ul>
         {{each item.student as stu s}}
-        <li>student {{s + 1}} ：Name:{{stu.name}}--Age:{{stu.age}}--Sex:{{sexTranslator(stu.sex)}}</li>
+        <li>student {{s + 1}} ：Name:{{stu.name}}--Age:{{stu.age}}--Sex:{{stu.sex|sexTranslator}}</li>
         {{/each}}
     </ul>
     {{/each}}
@@ -49,7 +49,7 @@
 <script id="inner" type="text/html">
     <ul>
         {{each student as stu s}}
-        <li>student {{s + 1}} ：Name:{{stu.name}}--Age:{{stu.age}}--Sex:{{sexTranslator(stu.sex)}}</li>
+        <li>student {{s + 1}} ：Name:{{stu.name}}--Age:{{stu.age}}--Sex:{{stu.sex|sexTranslator}}</li>
         {{/each}}
     </ul>
 </script>
@@ -84,7 +84,7 @@
             }
         ]
     };
-    //自定义函数
+    //注册过滤器--自定义函数
     template.defaults.imports.sexTranslator = function(sex){
         console.log(sex); //同样可以打印日志到控制台
         if(sex == 0){
@@ -93,8 +93,8 @@
             return "女"
         }
     };
-    /*//4.x版本已不兼容
-    template.helper(name,callBack){
+    //4.x版本已不兼容
+    /*template.helper(callback,function(){
 
     });*/
 

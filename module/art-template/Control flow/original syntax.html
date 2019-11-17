@@ -42,16 +42,17 @@
 <!--数据传递？？？-->
 <script id="outer" type="text/html">
     <% if(data.isAdmin){%>
-    <% for(var i = 0 ; i < data.list.length ; i++){ %>
-    <% var item = data.list[i]; var stu = item.student%>
-    <h1>{{item.title}}</h1>
-    <% include('inner', stu) %>
-    <% } %>
+        <% for(var i = 0 ; i < data.list.length ; i++){ %>
+            <% var item = data.list[i]; var stu = item.student%>
+            <h1>{{item.title}}</h1>
+            <% include('inner', data) %>
+        <% } %>
     <% } %>
 </script>
 <script id="inner" type="text/html">
     <ul>
-
+        <% var console = getConsole(); %>
+        <% console.log(data); %>
     </ul>
 </script>
 
@@ -85,17 +86,21 @@
             }
         ]
     };
-    //自定义函数
+    //注册过滤器--自定义函数
     template.defaults.imports.sexTranslator = function(sex){
-        console.log(sex); //可以打印日志到控制台
+        //console.log(sex); //可以打印日志到控制台
         if(sex == 0){
             return "男"
         }else if(sex == 1){
             return "女"
         }
     };
-    /*//4.x版本已不兼容
-    template.helper(name,callBack){
+    template.defaults.imports.getConsole = function(){
+        return console;
+    };
+
+    //4.x版本已不兼容
+    /*template.helper(callback,function(){
 
     });*/
 
