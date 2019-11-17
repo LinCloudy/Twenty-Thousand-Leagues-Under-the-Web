@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #content_l{
+            width: 49%;
+            height: auto;
+            float: left;
+            border: 1px solid black;
+        }
+        #content_r{
+            width: 49%;
+            height: auto;
+            float: right;
+            border: 1px solid black;
+        }
+    </style>
+    <script src="../../../common/template-web.js"></script>
+</head>
+<body>
+<div id="content_l"></div>
+<div id="content_r"></div>
+
+<script id="entirety" type="text/html">
+    {{if isAdmin}}
+    {{each list as item i}}
+    <h1>{{item.title}}</h1>
+    <ul>
+        {{each item.student as stu s}}
+        <li>student {{s + 1}} ：Name:{{stu.name}}--Age:{{stu.age}}--Sex:{{sexTranslator(stu.sex)}}</li>
+        {{/each}}
+    </ul>
+    {{/each}}
+    {{/if}}
+</script>
+
+
+<!-- 引入子模板 $value为制定数据，同样必须是父级数据-->
+<script id="outer" type="text/html">
+    {{if isAdmin}}
+    {{each list}}
+    <h1>{{$value.title}}</h1>
+    {{include 'inner' $value}}
+    {{/each}}
+    {{/if}}
+</script>
+<script id="inner" type="text/html">
+    <ul>
+        {{each student as stu s}}
+        <li>student {{s + 1}} ：Name:{{stu.name}}--Age:{{stu.age}}--Sex:{{sexTranslator(stu.sex)}}</li>
+        {{/each}}
+    </ul>
+</script>
+
+
+
+<script>
+    var data = {
+        isAdmin: true,
+        list : [
+            {
+                title : '1班',
+                tags : ['摄影', '电影', '民谣', '旅行', '吉他'],
+                student:[
+                    {name:"jack",age:18,sex:1},
+                    {name:"tom",age:19,sex:0},
+                    {name:"jerry",age:20,sex:0},
+                    {name:"kid",age:21,sex:1},
+                    {name:"jade",age:22,sex:0}
+                ]
+            },
+            {
+                title : '2班',
+                tags : ['摄影', '电影', '民谣', '旅行', '吉他'],
+                student:[
+                    {name:"jack",age:18,sex:1},
+                    {name:"tom",age:19,sex:0},
+                    {name:"jerry",age:20,sex:0},
+                    {name:"kid",age:21,sex:1},
+                    {name:"jade",age:22,sex:0}
+                ]
+            }
+        ]
+    };
+    //自定义函数
+    template.defaults.imports.sexTranslator = function(sex){
+        console.log(sex); //同样可以打印日志到控制台
+        if(sex == 0){
+            return "男"
+        }else if(sex == 1){
+            return "女"
+        }
+    };
+    /*//4.x版本已不兼容
+    template.helper(name,callBack){
+
+    });*/
+
+    var html_l = template('entirety', data);
+    var html_r = template('outer', data);
+    document.getElementById('content_l').innerHTML = html_l;
+    document.getElementById('content_r').innerHTML = html_r;
+</script>
+
+</body>
+</html>

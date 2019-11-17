@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #content_l{
+            width: 49%;
+            height: auto;
+            float: left;
+            border: 1px solid black;
+        }
+        #content_r{
+            width: 49%;
+            height: auto;
+            float: right;
+            border: 1px solid black;
+        }
+    </style>
+    <script src="../../../common/template-web.js"></script>
+</head>
+<body>
+<div id="content_l"></div>
+<div id="content_r"></div>
+
+<script id="entirety" type="text/html">
+    <% if(data.isAdmin){%>
+    <% for(var i = 0 ; i < data.list.length ; i++){ %>
+    <% var item = data.list[i]; var stu = item.student%>
+    <h1>{{item.title}}</h1>
+    <ul>
+        <% for(var j = 0 ; j < stu.length ; j++){ %>
+        <li>student <%=j+1%>: Name:<%= stu[j].name%>--Age:<%= stu[j].age%>--Sex:<%= sexTranslator(stu[j].sex)%></li>
+        <% } %>
+    </ul>
+    <% } %>
+    <% } %>
+</script>
+
+
+<!-- 引入子模板 $value为制定数据，同样必须是父级数据-->
+<!--数据传递？？？-->
+<script id="outer" type="text/html">
+    <% if(data.isAdmin){%>
+    <% for(var i = 0 ; i < data.list.length ; i++){ %>
+    <% var item = data.list[i]; var stu = item.student%>
+    <h1>{{item.title}}</h1>
+    <% include('inner', stu) %>
+    <% } %>
+    <% } %>
+</script>
+<script id="inner" type="text/html">
+    <ul>
+
+    </ul>
+</script>
+
+
+
+<script>
+    var data = {
+        isAdmin: true,
+        list : [
+            {
+                title : '1班',
+                tags : ['摄影', '电影', '民谣', '旅行', '吉他'],
+                student:[
+                    {name:"jack",age:18,sex:1},
+                    {name:"tom",age:19,sex:0},
+                    {name:"jerry",age:20,sex:0},
+                    {name:"kid",age:21,sex:1},
+                    {name:"jade",age:22,sex:0}
+                ]
+            },
+            {
+                title : '2班',
+                tags : ['摄影', '电影', '民谣', '旅行', '吉他'],
+                student:[
+                    {name:"jack",age:18,sex:1},
+                    {name:"tom",age:19,sex:0},
+                    {name:"jerry",age:20,sex:0},
+                    {name:"kid",age:21,sex:1},
+                    {name:"jade",age:22,sex:0}
+                ]
+            }
+        ]
+    };
+    //自定义函数
+    template.defaults.imports.sexTranslator = function(sex){
+        console.log(sex); //可以打印日志到控制台
+        if(sex == 0){
+            return "男"
+        }else if(sex == 1){
+            return "女"
+        }
+    };
+    /*//4.x版本已不兼容
+    template.helper(name,callBack){
+
+    });*/
+
+    var html_l = template('entirety', {data:data});
+    var html_r = template('outer', {data:data});
+    document.getElementById('content_l').innerHTML = html_l;
+    document.getElementById('content_r').innerHTML = html_r;
+</script>
+
+</body>
+</html>
