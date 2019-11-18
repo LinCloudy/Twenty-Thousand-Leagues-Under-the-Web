@@ -39,20 +39,23 @@
 
 
 <!-- 引入子模板 $value为制定数据，同样必须是父级数据-->
-<!--数据传递？？？-->
+<!--模板数据传递需要指定传入值{stu:stu}-->
 <script id="outer" type="text/html">
     <% if(data.isAdmin){%>
         <% for(var i = 0 ; i < data.list.length ; i++){ %>
             <% var item = data.list[i]; var stu = item.student%>
             <h1>{{item.title}}</h1>
-            <% include('inner', data) %>
+            <% include('inner', {stu:stu}) %>
         <% } %>
     <% } %>
 </script>
 <script id="inner" type="text/html">
     <ul>
         <% var console = getConsole(); %>
-        <% console.log(data); %>
+        <% console.log(stu); %>
+        <% for(var j = 0 ; j < stu.length ; j++){ %>
+        <li>student <%=j+1%>: Name:<%= stu[j].name%>--Age:<%= stu[j].age%>--Sex:<%= sexTranslator(stu[j].sex)%></li>
+        <% } %>
     </ul>
 </script>
 
