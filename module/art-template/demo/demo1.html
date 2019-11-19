@@ -2,9 +2,100 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>定制表格摸板</title>
+    <style type="text/css">
+        /*border-collapse:collapse和border-radius不兼容 */
+        body,table{
+            font-size:12px;
+        }
+        table{
+            table-layout:fixed;
+            empty-cells:show;
+            border-collapse: collapse;
+            margin:0 auto;
+        }
+        td{
+            height:30px;
+        }
+        h1,h2,h3{
+            font-size:12px;
+            margin:0;
+            padding:0;
+        }
+        .table{
+            border:1px solid #cad9ea;
+            color:#666;
+        }
+        .table thead td{
+            background-repeat:repeat-x;
+            height:30px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .table td{
+            border:1px solid #cad9ea;
+            padding:0 1em 0;
+        }
+        .table tbody tr:nth-child(2n-1) {
+            background-color:#f5fafe;
+        }
+
+    </style>
+    <script src="../../../common/template-web.js"></script>
+    <script type="text/html" id="template">
+        {{each tds value index}}
+        <tr>
+            <td>{{value.sno}}</td>
+            <td>{{value.name}}</td>
+            <td>{{value.department}}</td>
+            <td>{{value.class}}</td>
+            <td>{{value.sex|sexTranslator}}</td>
+            <td>{{value.telephoneNumber}}</td>
+            <td>{{value.dormitoryNum}}</td>
+            <td>{{value.gradient}}</td>
+        </tr>
+        {{/each}}
+    </script>
 </head>
 <body>
+<table width="90%" class="table">
+    <thead>
+        <tr>
+            <td>学号</td>
+            <td>姓名</td>
+            <td>院系</td>
+            <td>班级</td>
+            <td>性别</td>
+            <td>联系方式（电话）</td>
+            <td>寝室号</td>
+            <td>段位</td>
+        </tr>
+    </thead>
+    <tbody id="tbody">
+        <!-- 数据可以可选地包括在这里 -->
+    </tbody>
+</table>
+<script>
+    var data = [
+        {sno:"001",name:"kart",department:"Art",class:"1",sex:"0",telephoneNumber:"110",dormitoryNum:"607",gradient:"塑料5"},
+        {sno:"001",name:"kart",department:"Art",class:"1",sex:"0",telephoneNumber:"110",dormitoryNum:"607",gradient:"塑料5"},
+        {sno:"001",name:"kart",department:"Art",class:"1",sex:"0",telephoneNumber:"110",dormitoryNum:"607",gradient:"塑料5"},
+        {sno:"001",name:"kart",department:"Art",class:"1",sex:"0",telephoneNumber:"110",dormitoryNum:"607",gradient:"塑料5"},
+        {sno:"001",name:"kart",department:"Art",class:"1",sex:"0",telephoneNumber:"110",dormitoryNum:"607",gradient:"塑料5"},
+        {sno:"001",name:"kart",department:"Art",class:"1",sex:"0",telephoneNumber:"110",dormitoryNum:"607",gradient:"塑料5"},
+        {sno:"001",name:"kart",department:"Art",class:"1",sex:"0",telephoneNumber:"110",dormitoryNum:"607",gradient:"塑料5"},
+    ];
+    template.defaults.imports.sexTranslator = function(sex){
+        console.log(sex); //同样可以打印日志到控制台
+        if(sex == 0){
+            return "男"
+        }else if(sex == 1){
+            return "女"
+        }
+    };
+    var tr = template("template", {tds:data});
+    document.getElementById('tbody').innerHTML = tr;
+</script>
 
 </body>
 </html>
