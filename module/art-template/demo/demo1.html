@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>定制表格摸板</title>
+    <title>外部表格摸板引入</title>
     <style type="text/css">
         /*border-collapse:collapse和border-radius不兼容 */
         body,table{
@@ -42,39 +42,10 @@
 
     </style>
     <script src="../../../common/template-web.js"></script>
-    <script type="text/html" id="template">
-        {{each tds value index}}
-        <tr>
-            <td>{{value.sno}}</td>
-            <td>{{value.name}}</td>
-            <td>{{value.department}}</td>
-            <td>{{value.class}}</td>
-            <td>{{value.sex|sexTranslator}}</td>
-            <td>{{value.telephoneNumber}}</td>
-            <td>{{value.dormitoryNum}}</td>
-            <td>{{value.gradient}}</td>
-        </tr>
-        {{/each}}
-    </script>
+    <link href="ele_table.html" id="ele_table" rel="import">
 </head>
 <body>
-<table width="90%" class="table">
-    <thead>
-        <tr>
-            <td>学号</td>
-            <td>姓名</td>
-            <td>院系</td>
-            <td>班级</td>
-            <td>性别</td>
-            <td>联系方式（电话）</td>
-            <td>寝室号</td>
-            <td>段位</td>
-        </tr>
-    </thead>
-    <tbody id="tbody">
-        <!-- 数据可以可选地包括在这里 -->
-    </tbody>
-</table>
+<div id="table"></div>
 <script>
     var data = [
         {sno:"001",name:"kart",department:"Art",class:"1",sex:"0",telephoneNumber:"110",dormitoryNum:"607",gradient:"塑料5"},
@@ -93,8 +64,12 @@
             return "女"
         }
     };
-    var tr = template("template", {tds:data});
-    document.getElementById('tbody').innerHTML = tr;
+
+    var ele = document.querySelector('#ele_table').import.querySelector('script');
+    document.querySelector('head').appendChild(ele);
+
+    var html = template('template', {tds:data});
+    document.getElementById('table').innerHTML = html;
 </script>
 
 </body>
