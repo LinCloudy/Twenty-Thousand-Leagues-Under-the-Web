@@ -1,0 +1,30 @@
+<!-- 在这里注明模板用途 -->
+<table width="90%" class="table">
+    <thead>
+    <tr>
+        <td>学号</td>
+        <td>姓名</td>
+        <td>院系</td>
+        <td>班级</td>
+        <td>性别</td>
+        <td>联系方式（电话）</td>
+        <td>寝室号</td>
+        <td>段位</td>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- 数据可以可选地包括在这里 -->
+        {{each tds value index}}
+        <tr>
+            <td>{{value.sno}}</td>
+            <td>{{value.name}}</td>
+            <td>{{value.department}}</td>
+            <td>{{value.class}}</td>
+            <td>{{value.sex|sexTranslator}}</td>
+            <td>{{value.telephoneNumber}}</td>
+            <td>{{value.dormitoryNum}}</td>
+            <td>{{value.gradient}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

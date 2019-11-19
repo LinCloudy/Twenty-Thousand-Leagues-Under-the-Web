@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        /*border-collapse:collapse和border-radius不兼容 */
+        body,table{
+            font-size:12px;
+        }
+        table{
+            table-layout:fixed;
+            empty-cells:show;
+            border-collapse: collapse;
+            margin:0 auto;
+        }
+        td{
+            height:30px;
+        }
+        h1,h2,h3{
+            font-size:12px;
+            margin:0;
+            padding:0;
+        }
+        .table{
+            border:1px solid #cad9ea;
+            color:#666;
+        }
+        .table thead td{
+            background-repeat:repeat-x;
+            height:30px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .table td{
+            border:1px solid #cad9ea;
+            padding:0 1em 0;
+        }
+        .table tbody tr:nth-child(2n-1) {
+            background-color:#f5fafe;
+        }
+
+    </style>
+    <script src="../../../../common/template-web.js"></script>
+    <script src="../../../../common/jquery-1.8.0.js"></script>
+    <!--implement core-method compile()-->
+</head>
+<body>
+<div id="table"></div>
+<script>
+    $(function(){
+        var templateCache = {};
+        var renderArt = function(path, data){
+            var html;
+            if(templateCache.hasOwnProperty(path)){
+                //如果该模板存在，取对应模板函数直接渲染数据
+                html = templateCache[path](data);
+            }else{
+                $.ajax({
+                    type: 'GET',
+                    url: path,
+                    dataType: 'text',
+                    async: false
+                }).done(function(templateStr){
+                    var render = template.compile(templateStr);
+                    html = render(data);
+                    templateCache[path] = render;
+                });
+            }
+            return html;
+        };
+        var data = [
+            {sno:"001",name:"kart",department:"Art",class:"1",sex:"0",telephoneNumber:"110",dormitoryNum:"607",gradient:"塑料5"},
+            {sno:"001",name:"kart",department:"Art",class:"1",sex:"0",telephoneNumber:"110",dormitoryNum:"607",gradient:"塑料5"},
+            {sno:"001",name:"kart",department:"Art",class:"1",sex:"0",telephoneNumber:"110",dormitoryNum:"607",gradient:"塑料5"},
+            {sno:"001",name:"kart",department:"Art",class:"1",sex:"0",telephoneNumber:"110",dormitoryNum:"607",gradient:"塑料5"},
+            {sno:"001",name:"kart",department:"Art",class:"1",sex:"0",telephoneNumber:"110",dormitoryNum:"607",gradient:"塑料5"},
+            {sno:"001",name:"kart",department:"Art",class:"1",sex:"0",telephoneNumber:"110",dormitoryNum:"607",gradient:"塑料5"},
+            {sno:"001",name:"kart",department:"Art",class:"1",sex:"0",telephoneNumber:"110",dormitoryNum:"607",gradient:"塑料5"},
+        ];
+        template.defaults.imports.sexTranslator = function(sex){
+            if(sex == 0){
+                return "男"
+            }else if(sex == 1){
+                return "女"
+            }
+        };
+
+        document.getElementById('table').innerHTML = renderArt('./ele_table.art', {tds:data});
+
+    });
+</script>
+</body>
+</html>
