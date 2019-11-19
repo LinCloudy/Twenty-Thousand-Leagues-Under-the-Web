@@ -8,7 +8,7 @@
 <body>
 <div id="content"></div>
 <script type="text/javascript">
-    //和template()方法的区别在于，template.compile()将渲染模板用字符串拼接实现，而前者是用script标签来展示，前者更为直观
+    //和template()方法的区别在于，template.compile()将渲染模板用字符串拼接实现；而前者是用script标签来展示，更为直观
     //模板放在js脚本
     var source = '<ul>'
         +    '{{each list value index}}'
@@ -21,7 +21,7 @@
     var html = render({
         list: ['摄影', '电影', '民谣', '旅行', '吉他']
     });
-
+    // 可以做为一个公用函数，用来解决摸板共用的问题，弊端是代码难以维护
     document.getElementById('content').innerHTML = html;
 </script>
 </body>
