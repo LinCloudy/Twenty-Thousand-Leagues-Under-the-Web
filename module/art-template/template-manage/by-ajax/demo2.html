@@ -53,7 +53,7 @@
         var renderArt = function(path, data){
             var html;
             if(templateCache.hasOwnProperty(path)){
-                //如果该模板存在，取对应模板函数直接渲染数据
+                //如果该模板存在，不进行摸板解析，直接取对应模板函数渲染数据
                 html = templateCache[path](data);
             }else{
                 $.ajax({
