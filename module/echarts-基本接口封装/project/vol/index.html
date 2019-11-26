@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>江西志愿者服务平台数据统计</title>
+		<script type="text/javascript" src="asset/js/jquery-1.11.0.js" ></script>
+		<script type="text/javascript" src="asset/js/echarts.min.js" ></script>
+		<script type="text/javascript" src="asset/js/highcharts.js" ></script>
+		<script type="text/javascript" src="asset/js/countUp.min.js" ></script>
+		<script type="text/javascript" src="asset/js/chartInterface.js" ></script>
+		<link rel="stylesheet" type="text/css" href="asset/css/tooltip.css" />
+	</head>
+	<body>
+		<div class="line"></div>
+		<div class="container">
+			<div class="Blank_10"></div>
+			<div class="title"></div>
+			<div id="china_map"></div>
+			<div class="content">
+				<div id="data1"></div>
+				<div class="down">
+					<div id="data2"></div>
+					<div id="bulletin" onclick="initChart()">
+						<ul>
+							<li>志愿者人数：<span id="volunteerTotalNum" style="font-weight: bold;"></span><span style="float: right;margin-right: 28px;margin-top: 1px;">人</span></li>
+							<li>志愿活动数：<span id="volunteerActivityTotalNum" style="font-weight: bold;"></span><span style="float: right;margin-right: 28px;margin-top: 1px">次</span></li>
+							<li>志愿服务总时长：<br><span id="serviceTotalTime" style="font-weight: bold;float: left;margin-left: 35px;margin-top: 6px"></span><span style="float: right;margin-right: 27px;margin-top: 6px">小时</span></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="Blank_10"></div>
+		</div>
+		<div class="line"></div>
+		<script type="text/javascript" src="asset/js/index.js" ></script>
+		<script>
+			$.ajax({
+				type:'GET',
+				url:'http://ad.jxzyz.cn/vol/index.php/Home/Report/areareport/cid/1',
+				dataType: 'json',
+				success:function(data){
+					console.log(data);
+				}
+			});
+		</script>
+	</body>
+</html>

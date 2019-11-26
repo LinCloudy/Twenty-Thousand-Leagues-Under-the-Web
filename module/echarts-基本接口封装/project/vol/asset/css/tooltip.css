@@ -1,0 +1,107 @@
+body {
+    font-family: "microsoft yahei", Helvetica, Arial, sans-serif;
+    line-height: 1.42857;
+    color: rgb(51, 51, 51);
+    background-color: rgb(255, 255, 255);
+}
+#china_map{
+    width:375px;
+    height:710px;
+    float: left;
+    position: absolute;
+    margin-top: -60px;
+}
+#data1{
+    width:605px;
+    height: 305px;
+}
+#data2{
+    width: 305px;
+    height: 305px;
+    float: right;
+}
+#bulletin{
+    background-image:url(../img/map-left-jx.png);
+    background-size: 100% 100%;
+    width:232px;
+    height:266px;
+    font-size: 13px;
+    margin-left: -60px;
+    cursor: pointer;
+}
+#bulletin ul{
+    list-style: none;
+    position: relative;
+    top: 80px;
+    color: #ff7d23;
+}
+#bulletin ul li{
+    margin-top: 12px;
+}
+
+#bulletin span{
+    line-height: 20px;
+    margin-left: 6px;
+}
+.local_info {
+    width: 200px;
+    height: 258px;
+    position: relative;
+    background: red;
+    border-radius: 20px;
+    filter: drop-shadow(2px 2px 10px rgba(0,0,0,.6));
+}
+.local_info:after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: red;
+    position: absolute;
+    z-index: -999;
+    left: -20px;
+    top: 45%;
+    transform:rotate(45deg);
+}
+.local_context{
+    line-height: 20px;
+    font-size: 14px;
+    color: #cffdf8;
+    margin-left: -6px;
+}
+.local_context li{
+    margin-top: 10px;
+    margin-left: -5px;
+}
+.line {
+    width: 980px;
+    background: #dc0000;
+    clear: both;
+    height: 4px;
+    margin: 0px auto;
+    overflow: hidden;
+}
+.container {
+    clear: both;
+    width: 980px;
+    margin: 0px auto;
+    overflow: hidden;
+    background: #fff;
+}
+.Blank_10 {
+    clear: both;
+    width: auto;
+    height: 10px;
+    margin: 0px auto;
+}
+.title{
+    clear: both;
+    width: 978px;
+    height: 46px;
+    background-image:url(../img/title.jpg);
+    background-repeat: no-repeat;
+}
+.content{
+    float: right;
+    width: 600px;
+}

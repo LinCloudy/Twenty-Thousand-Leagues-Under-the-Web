@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var jsonOf1 = [
+        {
+            "cname":"桑海开发区",
+            "totalnum":"5859",
+            "teamnum":"14",
+            "servicetime":"922191",
+            "projectnum":"4396"
+        },
+        {
+            "cname":"红谷滩新区",
+            "totalnum":"34159",
+            "teamnum":"462",
+            "servicetime":"10163834",
+            "projectnum":"3875"
+        },
+        {
+            "cname":"高新开发区",
+            "totalnum":"44420",
+            "teamnum":"289",
+            "servicetime":"2051830",
+            "projectnum":"1584"
+        },
+        {
+            "cname":"安义县",
+            "totalnum":"14362",
+            "teamnum":"194",
+            "servicetime":"512446",
+            "projectnum":"1023"
+        },
+        {
+            "cname":"进贤县",
+            "totalnum":"58139",
+            "teamnum":"376",
+            "servicetime":"2944435",
+            "projectnum":"2934"
+        },
+        {
+            "cname":"新建区",
+            "totalnum":"87597",
+            "teamnum":"445",
+            "servicetime":"23250240",
+            "projectnum":"5525"
+        },
+        {
+            "cname":"南昌县",
+            "totalnum":"139746",
+            "teamnum":"730",
+            "servicetime":"89560945",
+            "projectnum":"6152"
+        },
+        {
+            "cname":"湾里区",
+            "totalnum":"17896",
+            "teamnum":"214",
+            "servicetime":"10137974",
+            "projectnum":"1843"
+        },
+        {
+            "cname":"青山湖区",
+            "totalnum":"55975",
+            "teamnum":"589",
+            "servicetime":"9519701",
+            "projectnum":"4002"
+        },
+        {
+            "cname":"青云谱区",
+            "totalnum":"25204",
+            "teamnum":"403",
+            "servicetime":"6554789",
+            "projectnum":"5694"
+        },
+        {
+            "cname":"西湖区",
+            "totalnum":"41793",
+            "teamnum":"666",
+            "servicetime":"72529775",
+            "projectnum":"6244"
+        },
+        {
+            "cname":"东湖区",
+            "totalnum":"43206",
+            "teamnum":"415",
+            "servicetime":"15351230",
+            "projectnum":"4516"
+        },
+        {
+            "cname":"南昌经济技术开发区",
+            "totalnum":"42835",
+            "teamnum":"320",
+            "servicetime":"2998178",
+            "projectnum":"1727"
+        },
+        {
+            "cname":"长堎外商投资工业园",
+            "totalnum":"225",
+            "teamnum":"4",
+            "servicetime":"28977",
+            "projectnum":"77"
+        },
+        {
+            "cname":"市直",
+            "totalnum":"13959",
+            "teamnum":"172",
+            "servicetime":"1030998",
+            "projectnum":"474"
+        }
+    ];
+    var jsonOf2 = [
+        {
+            "cname":"共青城市",
+            "totalnum":"7716",
+            "teamnum":"171",
+            "servicetime":"4019685",
+            "projectnum":"427"
+        },
+        {
+            "cname":"九江经济技术开发区",
+            "totalnum":"9205",
+            "teamnum":"106",
+            "servicetime":"758173",
+            "projectnum":"444"
+        },
+        {
+            "cname":"彭泽县",
+            "totalnum":"21898",
+            "teamnum":"216",
+            "servicetime":"20416569",
+            "projectnum":"289"
+        },
+        {
+            "cname":"都昌县",
+            "totalnum":"47639",
+            "teamnum":"242",
+            "servicetime":"4317894",
+            "projectnum":"760"
+        },
+        {
+            "cname":"湖口县",
+            "totalnum":"49396",
+            "teamnum":"186",
+            "servicetime":"195497787",
+            "projectnum":"480"
+        },
+        {
+            "cname":"瑞昌市",
+            "totalnum":"27660",
+            "teamnum":"213",
+            "servicetime":"1039640",
+            "projectnum":"600"
+        },
+        {
+            "cname":"武宁县",
+            "totalnum":"34196",
+            "teamnum":"271",
+            "servicetime":"7013151",
+            "projectnum":"1295"
+        },
+        {
+            "cname":"修水县",
+            "totalnum":"19793",
+            "teamnum":"304",
+            "servicetime":"413800",
+            "projectnum":"488"
+        },
+        {
+            "cname":"星子县",
+            "totalnum":"6847",
+            "teamnum":"115",
+            "servicetime":"1237992",
+            "projectnum":"151"
+        },
+        {
+            "cname":"永修县",
+            "totalnum":"57447",
+            "teamnum":"260",
+            "servicetime":"18373904",
+            "projectnum":"833"
+        },
+        {
+            "cname":"德安县",
+            "totalnum":"15790",
+            "teamnum":"162",
+            "servicetime":"17388459",
+            "projectnum":"1006"
+        },
+        {
+            "cname":"九江县",
+            "totalnum":"26686",
+            "teamnum":"328",
+            "servicetime":"721732",
+            "projectnum":"3248"
+        },
+        {
+            "cname":"濂溪区",
+            "totalnum":"31809",
+            "teamnum":"342",
+            "servicetime":"270291",
+            "projectnum":"1290"
+        },
+        {
+            "cname":"浔阳区",
+            "totalnum":"49800",
+            "teamnum":"312",
+            "servicetime":"2597013",
+            "projectnum":"1539"
+        },
+        {
+            "cname":"庐山风景名胜区",
+            "totalnum":"1037",
+            "teamnum":"35",
+            "servicetime":"324084",
+            "projectnum":"102"
+        },
+        {
+            "cname":"庐山西海风景名胜区",
+            "totalnum":"223",
+            "teamnum":"11",
+            "servicetime":"6175",
+            "projectnum":"6"
+        },
+        {
+            "cname":"八里湖新区",
+            "totalnum":"1954",
+            "teamnum":"72",
+            "servicetime":"72147",
+            "projectnum":"333"
+        },
+        {
+            "cname":"庐山管理局",
+            "totalnum":"540",
+            "teamnum":"28",
+            "servicetime":"291448",
+            "projectnum":"39"
+        },
+        {
+            "cname":"市直",
+            "totalnum":"18031",
+            "teamnum":"106",
+            "servicetime":"324512",
+            "projectnum":"184"
+        }
+    ];
+    var data = [jsonOf1,jsonOf2];
+
+    //定义二维数组
+    var towns = new Array();
+    var volunteersNums = new Array();
+    var serviceTimes = new Array();
+    var volunteerActivityNums = new Array();
+    var volunteersNumsFixed = new Array();
+    var serviceTimesFixed = new Array();
+
+    //遍历json数组，取出数组中所有key的值放入新二维数组中
+    for (var i = 0; i < data.length; i++){  //第一层 分别取出jsonOf1...N
+
+        towns[i] = new Array(); //一维长度
+        volunteersNums[i] = new Array();
+        serviceTimes[i] = new Array();
+        volunteerActivityNums[i] = new Array();
+        volunteersNumsFixed[i] = new Array();
+        serviceTimesFixed[i] = new Array();
+
+        for (var j = 0; j < data[i].length; j++){   //第二层 分别取出数组中的json
+
+            towns[i][j] = new Array();  //二维长度
+            volunteersNums[i][j] = new Array();
+            serviceTimes[i][j] = new Array();
+            volunteerActivityNums[i][j] = new Array();
+            volunteersNumsFixed[i][j] = new Array();
+            serviceTimesFixed[i][j] = new Array();
+
+            towns[i][j] = data[i][j].cname;
+            volunteersNums[i][j] = parseInt(data[i][j].totalnum);
+            volunteersNumsFixed[i][j] = parseInt(data[i][j].totalnum);
+            serviceTimes[i][j] = Math.round(parseInt(data[i][j].servicetime)/60);
+            serviceTimesFixed[i][j] = Math.round(parseInt(data[i][j].servicetime)/60);
+            volunteerActivityNums[i][j] = parseInt(data[i][j].projectnum);
+
+        }
+    }
+    console.log(volunteersNums);
+    console.log(volunteersNumsFixed);
+    console.log(serviceTimes);
+    console.log(serviceTimesFixed);
+
+
+    var townsIn1 = new Array(jsonOf1.length);
+    var volunteersNumIn1 = new Array(jsonOf1.length);
+    var serviceTimeIn1 = new Array(jsonOf1.length);
+    var volunteersNumIn1Real = new Array(jsonOf1.length);
+    var serviceTimeIn1Real = new Array(jsonOf1.length);
+    var volunteerActivityNumIn1 = new Array(jsonOf1.length);
+    for(var j = 0; j < jsonOf1.length; j++){
+        townsIn1[j] = jsonOf1[j].cname;
+        volunteersNumIn1[j] = parseInt(jsonOf1[j].totalnum);
+        serviceTimeIn1[j] = Math.round(parseInt(jsonOf1[j].servicetime)/60);
+        volunteersNumIn1Real[j] = parseInt(jsonOf1[j].totalnum);
+        serviceTimeIn1Real[j] = Math.round(parseInt(jsonOf1[j].servicetime)/60);
+        volunteerActivityNumIn1[j] = parseInt(jsonOf1[j].projectnum);
+    }
+
+
+    //-------------------
+    var townsIn2 = new Array(jsonOf2.length);
+    var volunteersNumIn2 = new Array(jsonOf2.length);
+    var serviceTimeIn2 = new Array(jsonOf2.length);
+    var volunteersNumIn2Real = new Array(jsonOf2.length);
+    var serviceTimeIn2Real = new Array(jsonOf2.length);
+    var volunteerActivityNumIn2 = new Array(jsonOf2.length);
+    for(var j = 0; j < jsonOf2.length; j++){
+        townsIn2[j] = jsonOf2[j].cname;
+        volunteersNumIn2[j] = parseInt(jsonOf2[j].totalnum);
+        serviceTimeIn2[j] = Math.round(parseInt(jsonOf2[j].servicetime)/60);
+        volunteersNumIn2Real[j] = parseInt(jsonOf2[j].totalnum);
+        serviceTimeIn2Real[j] = Math.round(parseInt(jsonOf2[j].servicetime)/60);
+        volunteerActivityNumIn2[j] = parseInt(jsonOf2[j].projectnum);
+    }
+
+
+
+    var dataTest = [
+        {
+            /*'新余':{
+                towns:['玉水','分宜'],//地一级
+                volunteersNum:[81,81],//地一级志愿者人数
+                serviceTime:[11,11],//地一级志愿时总数
+                volunteerActivityNum:[10,5],//地一级支援活动数
+                landscapeURL:"http://y2.ifengimg.com/a/2016/0316/96d5ab414455febsize25_w283_h163.jpg"
+            }*/
+            '南昌':{
+                towns:towns[0],
+                volunteersNum:volunteersNums[0],
+                serviceTime:serviceTimes[0],
+                volunteerActivityNum:volunteerActivityNums[0],
+                landscapeURL:"http://y2.ifengimg.com/l/2016/10/b2281c94f1931a5/p-img-nanchang.jpg",
+                totalVolunteers:'625523',
+                totalVolunteerActivityNum:'49691',
+                totalServiceTime:'1160772281'
+            },
+            '九江':{
+                towns:townsIn2,
+                volunteersNum:volunteersNumIn2,
+                serviceTime:serviceTimeIn2,
+                volunteerActivityNum:volunteerActivityNumIn2,
+                landscapeURL:"http://y2.ifengimg.com/a/2016/0316/ccd9ddb13d033basize29_w283_h163.jpg",
+                totalVolunteers:'427660',
+                totalVolunteerActivityNum:'13551',
+                totalServiceTime:'467833521'
+            }
+            //...
+        }
+    ];
+
+</script>
+</body>
+</html>
