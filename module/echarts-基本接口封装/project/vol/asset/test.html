@@ -250,6 +250,30 @@
     ];
     var data = [jsonOf1,jsonOf2];
 
+    var jsonOfTotal1 = {
+        "cname":"南昌市",
+        "totalnum":"741999",
+        "teamnum":"5661",
+        "servicetime":"1212872599",
+        "projectnum":"53242"
+    };
+    var jsonOfTotal2 = {
+        "cname":"九江市",
+        "totalnum":"441250",
+        "teamnum":"3499",
+        "servicetime":"482734402",
+        "projectnum":"14635"
+    };
+    var dataOfTotal = [jsonOfTotal1 , jsonOfTotal2];
+    var arrVolNumTotal = new Array();
+    var arrServiceTimeTotal = new Array();
+    for (var k = 0; k < dataOfTotal.length; k++){
+        arrVolNumTotal[k] = dataOfTotal[k].totalnum;
+        arrServiceTimeTotal[k] = dataOfTotal[k].servicetime;
+    }
+    console.log(arrVolNumTotal);
+
+
     //定义二维数组
     var towns = new Array();
     var volunteersNums = new Array();

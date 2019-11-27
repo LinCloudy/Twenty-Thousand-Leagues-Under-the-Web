@@ -994,6 +994,85 @@ var jsonOf11 = [
         "projectnum":"0"
     }
 ];
+
+var jsonOfTotal1 = {
+    "cname":"南昌市",
+    "totalnum":"741999",
+    "teamnum":"5661",
+    "servicetime":"1212872599",
+    "projectnum":"53242"
+};
+var jsonOfTotal2 = {
+    "cname":"九江市",
+    "totalnum":"441250",
+    "teamnum":"3499",
+    "servicetime":"482734402",
+    "projectnum":"14635"
+};
+var jsonOfTotal3 = {
+    "cname":"景德镇市",
+    "totalnum":"172228",
+    "teamnum":"1417",
+    "servicetime":"229743195",
+    "projectnum":"15116"
+};
+var jsonOfTotal4 = {
+    "cname":"萍乡市",
+    "totalnum":"213506",
+    "teamnum":"761",
+    "servicetime":"7187753",
+    "projectnum":"698"
+};
+var jsonOfTotal5 = {
+    "cname":"新余市",
+    "totalnum":"318749",
+    "teamnum":"1147",
+    "servicetime":"707286780",
+    "projectnum":"3418"
+};
+var jsonOfTotal6 = {
+    "cname":"鹰潭市",
+    "totalnum":"165176",
+    "teamnum":"2021",
+    "servicetime":"475393303",
+    "projectnum":"6596"
+};
+var jsonOfTotal7 = {
+    "cname":"赣州市",
+    "totalnum":"876845",
+    "teamnum":"7078",
+    "servicetime":"1386137280",
+    "projectnum":"39834"
+};
+var jsonOfTotal8 = {
+    "cname":"宜春市",
+    "totalnum":"781141",
+    "teamnum":"4675",
+    "servicetime":"1052536870",
+    "projectnum":"27666"
+};
+var jsonOfTotal9 = {
+    "cname":"上饶市",
+    "totalnum":"637990",
+    "teamnum":"4508",
+    "servicetime":"826986952",
+    "projectnum":"14585"
+};
+var jsonOfTotal10 = {
+    "cname":"吉安市",
+    "totalnum":"683904",
+    "teamnum":"7274",
+    "servicetime":"1367594875",
+    "projectnum":"31732"
+};
+var jsonOfTotal11 = {
+    "cname":"抚州市",
+    "totalnum":"323619",
+    "teamnum":"3360",
+    "servicetime":"655379250",
+    "projectnum":"15787"
+};
+
 $(function() {
     /*$.ajax({
         type:'POST',
@@ -1260,9 +1339,9 @@ var dataTest = [
             serviceTime:serviceTimes[0],
             volunteerActivityNum:volunteerActivityNums[0],
             landscapeURL:"http://y2.ifengimg.com/l/2016/10/b2281c94f1931a5/p-img-nanchang.jpg",
-            totalVolunteers:'713211',
-            totalVolunteerActivityNum:'52353',
-            totalServiceTime:'1191910447'
+            totalVolunteers:jsonOfTotal1.totalnum,
+            totalVolunteerActivityNum:jsonOfTotal1.projectnum,
+            totalServiceTime:jsonOfTotal1.servicetime
         },
         '九江':{
             towns:towns[1],
@@ -1270,9 +1349,9 @@ var dataTest = [
             serviceTime:serviceTimes[1],
             volunteerActivityNum:volunteerActivityNums[1],
             landscapeURL:"http://y2.ifengimg.com/a/2016/0316/ccd9ddb13d033basize29_w283_h163.jpg",
-            totalVolunteers:'439057',
-            totalVolunteerActivityNum:'14350',
-            totalServiceTime:'477067256'
+            totalVolunteers:jsonOfTotal2.totalnum,
+            totalVolunteerActivityNum:jsonOfTotal2.projectnum,
+            totalServiceTime:jsonOfTotal2.servicetime
         },
         '景德镇':{
             towns:towns[2],
@@ -1280,9 +1359,9 @@ var dataTest = [
             serviceTime:serviceTimes[2],
             volunteerActivityNum:volunteerActivityNums[2],
             landscapeURL:"http://y2.ifengimg.com/a/2016/0316/a4fb03c8ec2569bsize20_w283_h163.jpg",
-            totalVolunteers:'172111',
-            totalVolunteerActivityNum:'14935',
-            totalServiceTime:'221936353'
+            totalVolunteers:jsonOfTotal3.totalnum,
+            totalVolunteerActivityNum:jsonOfTotal3.projectnum,
+            totalServiceTime:jsonOfTotal3.servicetime
         },
         '萍乡':{
             towns:towns[3],
@@ -1290,9 +1369,9 @@ var dataTest = [
             serviceTime:serviceTimes[3],
             volunteerActivityNum:volunteerActivityNums[3],
             landscapeURL:"http://y2.ifengimg.com/a/2016/0316/b24bd341ace8991size34_w283_h163.jpg",
-            totalVolunteers:'213405',
-            totalVolunteerActivityNum:'698',
-            totalServiceTime:'7148469'
+            totalVolunteers:jsonOfTotal4.totalnum,
+            totalVolunteerActivityNum:jsonOfTotal4.projectnum,
+            totalServiceTime:jsonOfTotal4.servicetime
         },
         '新余':{
             towns:towns[4],
@@ -1300,9 +1379,9 @@ var dataTest = [
             serviceTime:serviceTimes[4],
             volunteerActivityNum:volunteerActivityNums[4],
             landscapeURL:"http://y2.ifengimg.com/a/2016/0316/96d5ab414455febsize25_w283_h163.jpg",
-            totalVolunteers:'318084',
-            totalVolunteerActivityNum:'3076',
-            totalServiceTime:'705372141'
+            totalVolunteers:jsonOfTotal5.totalnum,
+            totalVolunteerActivityNum:jsonOfTotal5.projectnum,
+            totalServiceTime:jsonOfTotal5.servicetime
         },
         '鹰潭':{
             towns:towns[5],
@@ -1310,9 +1389,9 @@ var dataTest = [
             serviceTime:serviceTimes[5],
             volunteerActivityNum:volunteerActivityNums[5],
             landscapeURL:"http://y2.ifengimg.com/a/2016/0316/a33e5791439755dsize33_w283_h163.jpg",
-            totalVolunteers:'163757',
-            totalVolunteerActivityNum:'6462',
-            totalServiceTime:'467220814'
+            totalVolunteers:jsonOfTotal6.totalnum,
+            totalVolunteerActivityNum:jsonOfTotal6.projectnum,
+            totalServiceTime:jsonOfTotal6.servicetime
         },
         '赣州':{
             towns:towns[6],
@@ -1320,9 +1399,9 @@ var dataTest = [
             serviceTime:serviceTimes[6],
             volunteerActivityNum:volunteerActivityNums[6],
             landscapeURL:"http://y2.ifengimg.com/a/2016/0316/80f3a6aee923434size33_w283_h163.jpg",
-            totalVolunteers:'875873',
-            totalVolunteerActivityNum:'39243',
-            totalServiceTime:'1378910933'
+            totalVolunteers:jsonOfTotal7.totalnum,
+            totalVolunteerActivityNum:jsonOfTotal7.projectnum,
+            totalServiceTime:jsonOfTotal7.servicetime
         },
         '宜春':{
             towns:towns[7],
@@ -1330,9 +1409,9 @@ var dataTest = [
             serviceTime:serviceTimes[7],
             volunteerActivityNum:volunteerActivityNums[7],
             landscapeURL:"http://y2.ifengimg.com/a/2016/0316/57ed37108932946size33_w283_h163.jpg",
-            totalVolunteers:'780852',
-            totalVolunteerActivityNum:'27459',
-            totalServiceTime:'1023978139'
+            totalVolunteers:jsonOfTotal8.totalnum,
+            totalVolunteerActivityNum:jsonOfTotal8.projectnum,
+            totalServiceTime:jsonOfTotal8.servicetime
         },
         '上饶':{
             towns:towns[8],
@@ -1340,9 +1419,9 @@ var dataTest = [
             serviceTime:serviceTimes[8],
             volunteerActivityNum:volunteerActivityNums[8],
             landscapeURL:"http://y2.ifengimg.com/a/2016/0316/1f250fc88604b44size30_w283_h163.jpg",
-            totalVolunteers:'631752',
-            totalVolunteerActivityNum:'14232',
-            totalServiceTime:'811296314'
+            totalVolunteers:jsonOfTotal9.totalnum,
+            totalVolunteerActivityNum:jsonOfTotal9.projectnum,
+            totalServiceTime:jsonOfTotal9.servicetime
         },
         '吉安':{
             towns:towns[9],
@@ -1350,9 +1429,9 @@ var dataTest = [
             serviceTime:serviceTimes[9],
             volunteerActivityNum:volunteerActivityNums[9],
             landscapeURL:"http://y2.ifengimg.com/a/2016/0316/0484871ad88bcf6size19_w283_h163.jpg",
-            totalVolunteers:'679165',
-            totalVolunteerActivityNum:'31626',
-            totalServiceTime:'1363106357'
+            totalVolunteers:jsonOfTotal10.totalnum,
+            totalVolunteerActivityNum:jsonOfTotal1.projectnum,
+            totalServiceTime:jsonOfTotal10.servicetime
         },
         '抚州':{
             towns:towns[10],
@@ -1360,9 +1439,9 @@ var dataTest = [
             serviceTime:serviceTimes[10],
             volunteerActivityNum:volunteerActivityNums[10],
             landscapeURL:"http://y2.ifengimg.com/a/2016/0316/b541d174a4c7220size29_w283_h163.jpg",
-            totalVolunteers:'322149',
-            totalVolunteerActivityNum:'15747',
-            totalServiceTime:'654549147'
+            totalVolunteers:jsonOfTotal11.totalnum,
+            totalVolunteerActivityNum:jsonOfTotal11.projectnum,
+            totalServiceTime:jsonOfTotal11.servicetime
         }
         //...
     }
@@ -1381,113 +1460,113 @@ var dataTestReal = [
         }*/
         '南昌':{
             towns:towns[0],
-            volunteersNum:volunteersNums[0],
-            serviceTime:serviceTimes[0],
+            volunteersNum:volunteersNumsFixed[0],
+            serviceTime:serviceTimesFixed[0],
             volunteerActivityNum:volunteerActivityNums[0],
             landscapeURL:"http://y2.ifengimg.com/l/2016/10/b2281c94f1931a5/p-img-nanchang.jpg",
-            totalVolunteers:'713211',
-            totalVolunteerActivityNum:'52353',
-            totalServiceTime:'1191910447'
+            totalVolunteers:jsonOfTotal1.totalnum,
+            totalVolunteerActivityNum:jsonOfTotal1.projectnum,
+            totalServiceTime:jsonOfTotal1.servicetime
         },
         '九江':{
             towns:towns[1],
-            volunteersNum:volunteersNums[1],
-            serviceTime:serviceTimes[1],
+            volunteersNum:volunteersNumsFixed[1],
+            serviceTime:serviceTimesFixed[1],
             volunteerActivityNum:volunteerActivityNums[1],
             landscapeURL:"http://y2.ifengimg.com/a/2016/0316/ccd9ddb13d033basize29_w283_h163.jpg",
-            totalVolunteers:'439057',
-            totalVolunteerActivityNum:'14350',
-            totalServiceTime:'477067256'
+            totalVolunteers:jsonOfTotal2.totalnum,
+            totalVolunteerActivityNum:jsonOfTotal2.projectnum,
+            totalServiceTime:jsonOfTotal2.servicetime
         },
         '景德镇':{
             towns:towns[2],
-            volunteersNum:volunteersNums[2],
-            serviceTime:serviceTimes[2],
+            volunteersNum:volunteersNumsFixed[2],
+            serviceTime:serviceTimesFixed[2],
             volunteerActivityNum:volunteerActivityNums[2],
             landscapeURL:"http://y2.ifengimg.com/a/2016/0316/a4fb03c8ec2569bsize20_w283_h163.jpg",
-            totalVolunteers:'172111',
-            totalVolunteerActivityNum:'14935',
-            totalServiceTime:'221936353'
+            totalVolunteers:jsonOfTotal3.totalnum,
+            totalVolunteerActivityNum:jsonOfTotal3.projectnum,
+            totalServiceTime:jsonOfTotal3.servicetime
         },
         '萍乡':{
             towns:towns[3],
-            volunteersNum:volunteersNums[3],
-            serviceTime:serviceTimes[3],
+            volunteersNum:volunteersNumsFixed[3],
+            serviceTime:serviceTimesFixed[3],
             volunteerActivityNum:volunteerActivityNums[3],
             landscapeURL:"http://y2.ifengimg.com/a/2016/0316/b24bd341ace8991size34_w283_h163.jpg",
-            totalVolunteers:'213405',
-            totalVolunteerActivityNum:'698',
-            totalServiceTime:'7148469'
+            totalVolunteers:jsonOfTotal4.totalnum,
+            totalVolunteerActivityNum:jsonOfTotal4.projectnum,
+            totalServiceTime:jsonOfTotal4.servicetime
         },
         '新余':{
             towns:towns[4],
-            volunteersNum:volunteersNums[4],
-            serviceTime:serviceTimes[4],
+            volunteersNum:volunteersNumsFixed[4],
+            serviceTime:serviceTimesFixed[4],
             volunteerActivityNum:volunteerActivityNums[4],
             landscapeURL:"http://y2.ifengimg.com/a/2016/0316/96d5ab414455febsize25_w283_h163.jpg",
-            totalVolunteers:'318084',
-            totalVolunteerActivityNum:'3076',
-            totalServiceTime:'705372141'
+            totalVolunteers:jsonOfTotal5.totalnum,
+            totalVolunteerActivityNum:jsonOfTotal5.projectnum,
+            totalServiceTime:jsonOfTotal5.servicetime
         },
         '鹰潭':{
             towns:towns[5],
-            volunteersNum:volunteersNums[5],
-            serviceTime:serviceTimes[5],
+            volunteersNum:volunteersNumsFixed[5],
+            serviceTime:serviceTimesFixed[5],
             volunteerActivityNum:volunteerActivityNums[5],
             landscapeURL:"http://y2.ifengimg.com/a/2016/0316/a33e5791439755dsize33_w283_h163.jpg",
-            totalVolunteers:'163757',
-            totalVolunteerActivityNum:'6462',
-            totalServiceTime:'467220814'
+            totalVolunteers:jsonOfTotal6.totalnum,
+            totalVolunteerActivityNum:jsonOfTotal6.projectnum,
+            totalServiceTime:jsonOfTotal6.servicetime
         },
         '赣州':{
             towns:towns[6],
-            volunteersNum:volunteersNums[6],
-            serviceTime:serviceTimes[6],
+            volunteersNum:volunteersNumsFixed[6],
+            serviceTime:serviceTimesFixed[6],
             volunteerActivityNum:volunteerActivityNums[6],
             landscapeURL:"http://y2.ifengimg.com/a/2016/0316/80f3a6aee923434size33_w283_h163.jpg",
-            totalVolunteers:'875873',
-            totalVolunteerActivityNum:'39243',
-            totalServiceTime:'1378910933'
+            totalVolunteers:jsonOfTotal7.totalnum,
+            totalVolunteerActivityNum:jsonOfTotal7.projectnum,
+            totalServiceTime:jsonOfTotal7.servicetime
         },
         '宜春':{
             towns:towns[7],
-            volunteersNum:volunteersNums[7],
-            serviceTime:serviceTimes[7],
+            volunteersNum:volunteersNumsFixed[7],
+            serviceTime:serviceTimesFixed[7],
             volunteerActivityNum:volunteerActivityNums[7],
             landscapeURL:"http://y2.ifengimg.com/a/2016/0316/57ed37108932946size33_w283_h163.jpg",
-            totalVolunteers:'780852',
-            totalVolunteerActivityNum:'27459',
-            totalServiceTime:'1023978139'
+            totalVolunteers:jsonOfTotal8.totalnum,
+            totalVolunteerActivityNum:jsonOfTotal8.projectnum,
+            totalServiceTime:jsonOfTotal8.servicetime
         },
         '上饶':{
             towns:towns[8],
-            volunteersNum:volunteersNums[8],
-            serviceTime:serviceTimes[8],
+            volunteersNum:volunteersNumsFixed[8],
+            serviceTime:serviceTimesFixed[8],
             volunteerActivityNum:volunteerActivityNums[8],
             landscapeURL:"http://y2.ifengimg.com/a/2016/0316/1f250fc88604b44size30_w283_h163.jpg",
-            totalVolunteers:'631752',
-            totalVolunteerActivityNum:'14232',
-            totalServiceTime:'811296314'
+            totalVolunteers:jsonOfTotal9.totalnum,
+            totalVolunteerActivityNum:jsonOfTotal9.projectnum,
+            totalServiceTime:jsonOfTotal9.servicetime
         },
         '吉安':{
             towns:towns[9],
-            volunteersNum:volunteersNums[9],
-            serviceTime:serviceTimes[9],
+            volunteersNum:volunteersNumsFixed[9],
+            serviceTime:serviceTimesFixed[9],
             volunteerActivityNum:volunteerActivityNums[9],
             landscapeURL:"http://y2.ifengimg.com/a/2016/0316/0484871ad88bcf6size19_w283_h163.jpg",
-            totalVolunteers:'679165',
-            totalVolunteerActivityNum:'31626',
-            totalServiceTime:'1363106357'
+            totalVolunteers:jsonOfTotal10.totalnum,
+            totalVolunteerActivityNum:jsonOfTotal1.projectnum,
+            totalServiceTime:jsonOfTotal10.servicetime
         },
         '抚州':{
             towns:towns[10],
-            volunteersNum:volunteersNums[10],
-            serviceTime:serviceTimes[10],
+            volunteersNum:volunteersNumsFixed[10],
+            serviceTime:serviceTimesFixed[10],
             volunteerActivityNum:volunteerActivityNums[10],
             landscapeURL:"http://y2.ifengimg.com/a/2016/0316/b541d174a4c7220size29_w283_h163.jpg",
-            totalVolunteers:'322149',
-            totalVolunteerActivityNum:'15747',
-            totalServiceTime:'654549147'
+            totalVolunteers:jsonOfTotal11.totalnum,
+            totalVolunteerActivityNum:jsonOfTotal11.projectnum,
+            totalServiceTime:jsonOfTotal11.servicetime
         }
         //...
     }
@@ -1516,9 +1595,13 @@ function getObjectValues(object) {
         values.push(object[property]);
     return values;
 }
-var totalVolunteersInCity = [713211,439057,172111,213405,318084,163757,875873,780852,631752,679165,322149];
-var totalVolunteerActivityNumInCity = [49691,13551,14444,696,2189,6242,38771,26915,13601,31345,15640];
-var totalServiceTimeInCity = [1191910447,477067256,221936353,7148469,705372141,467220814,1378910933,1023978139,811296314,1363106357,654549147];
+var dataOfTotal = [jsonOfTotal1,jsonOfTotal2,jsonOfTotal3,jsonOfTotal4,jsonOfTotal5,jsonOfTotal6,jsonOfTotal7,jsonOfTotal8,jsonOfTotal9,jsonOfTotal10,jsonOfTotal11];
+var totalVolunteersInCity = new Array();
+var totalServiceTimeInCity = new Array();
+for (var k = 0; k < dataOfTotal.length; k++){
+    totalVolunteersInCity[k] = parseInt(dataOfTotal[k].totalnum);
+    totalServiceTimeInCity[k] = parseInt(dataOfTotal[k].servicetime);
+}
 for(var i = 0; i < totalServiceTimeInCity.length; i++){
     totalServiceTimeInCity[i] = Math.round(totalServiceTimeInCity[i]/60);
 }
