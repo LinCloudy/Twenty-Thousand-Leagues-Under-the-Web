@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>仿易果生鲜网</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            font-size: 12px;
+        }
+        .web{
+            background: #f7f8f8;
+        }
+        .site_nav{
+            width: auto;
+            height: 30px;
+        }
+        .wrapper{
+            width: 1200px;
+            margin: 0 auto;
+        }
+        .wrapper ul{
+            display: inline;
+            height: 28px;
+            line-height: 28px;
+            text-align:center;
+            list-style: none;
+        }
+        .wrapper ul li{
+            display: inline;
+        }
+        .wrapper ul li img{
+            vertical-align: middle;
+        }
+
+        .w_l{
+            float: left;
+
+        }
+        .w_l div{
+            display: inline;
+        }
+        .w_l img{
+            width: 18px;
+            height: 18px;
+            margin-left: 18px;
+        }
+        .w_l .text{
+            margin-left: 30px;
+        }
+
+        .w_r{
+            float: right;
+
+        }
+        .w_r li{
+            width: auto;
+            margin: 0 4px;
+        }
+        .w_r li a{
+            text-decoration: none;
+        }
+
+
+        .header{
+            width: auto;
+            background: #e0e0e0;
+        }
+        .header .wrapper {
+            height: 58px;
+            padding: 15px 0 5px 0;
+        }
+        .logo{
+            float: left;
+            width: 280px;
+            margin-right: 10px;
+        }
+        .logo a{
+            display: block;
+            width: 145px;
+            height: 50px;
+            background: url("asset/img/logo.png") no-repeat top left;
+        }
+        .search{
+            float: left;
+            width: 528px;
+        }
+        .search .search_bar .search_input{
+            float: left;
+            width: 425px;
+            height: 26px;
+            line-height: 26px;
+            padding: 0 10px;
+            border: 1px solid #008842;
+            background: #e0e0e0;
+        }
+        .search .search_bar .search_btn{
+            float: left;
+            display: block;
+            width: 81px;
+            height: 28px;
+            line-height: 28px;
+            padding: 0;
+            border: none;
+            cursor: pointer;
+            color: #fff;
+            font-size: 14px;
+            background: #008842;
+        }
+        .search .search_keyword{
+            height: 30px;
+        }
+        .search .search_keyword ul{
+            display: inline;
+            line-height: 30px;
+            list-style: none;
+        }
+        .search .search_keyword ul li{
+            display: inline;
+            margin-right: 5px;
+        }
+        .search .search_keyword ul li a{
+            text-decoration: none;
+            color: #727272;
+        }
+        .search .search_keyword ul li a:hover{
+            color: #008842;
+        }
+
+        .shopping-cart{
+            z-index: 88;
+            float: right;
+            position: relative;
+        }
+        .shopping-cart .shopping-btn{
+            width: 170px;
+            height: 28px;
+            padding: 6px 0;
+            line-height: 28px;
+            text-align: center;
+            font-size: 25px;
+            border: 1px solid #008842;
+            background: #fff;
+            cursor: pointer;
+        }
+        .shopping-btn a{
+            display: block;
+            color: #008842;
+            text-decoration: none;
+        }
+        .shopping-btn .totalNum{
+            display: inline-block;
+            vertical-align: middle;
+            width: 28px;
+            height: 20px;
+            margin-right: 10px;
+            font-size: 12px;
+            padding: 0;
+            background: url("asset/img/header-img.png") no-repeat -112px 0;
+        }
+        .shopping-btn .totalNum b {
+            display: block;
+            width: 24px;
+            line-height: 12px;
+            margin-right: 4px;
+            text-align: center;
+        }
+        .shopping-btn .totalPrice {
+            font-weight: normal;
+            font-family: Arial, "Microsoft YaHei";
+        }
+
+        .banana-slider{
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            height: 500px;
+        }
+        .banana-slider .arrows {
+            z-index: 9999;
+            position: absolute;
+            padding-top: 230px;
+            width: 1500px;
+        }
+        .banana-slider .arrows span {
+            font-size: 3em;
+            color: seashell;
+        }
+        .banana-slider .arrows span:hover {
+            cursor: pointer;
+            background-color: rgba(192, 192, 192, 0.29);
+        }
+        .banana-slider .slider_list{
+            width: 100% !important;
+            margin: 0 auto;
+        }
+        .banana-slider .slider_list li {
+            overflow: hidden;
+            width: 100% !important;
+            height: 500px;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
+        }
+        .banana-slider .slider_list li img{
+            width: 100%;
+            height: 500px;
+            margin: 0 auto;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
+        }
+        .div_btn {
+            float: left;
+            border-radius: 100px;
+            background-color: aquamarine;
+            width: 60px;
+            height: 10px;
+            margin-left: 10px;
+            margin-top: 130px;
+        }
+
+        .div_btn:hover {
+            background-color: aqua;
+
+        }
+
+    </style>
+</head>
+<body>
+<div class="web">
+    <!--nav-->
+    <div class="site_nav">
+        <div class="wrapper">
+            <ul class="w_l">
+                <li>欢迎光临易果生鲜！</li>
+                <!--送货城市开始-->
+                <li>
+                    <div class="text">配送至：</div>
+                    <div class="location">南昌</div>
+                </li>
+                <!--送货城市结束-->
+                <li>
+                    <img src="asset/img/site_nav/notice.png">
+                    <div>网警提示</div>
+                </li>
+            </ul>
+            <ul class="w_r">
+                <li>
+                    <a href="">[登录]</a>
+               </li>
+                <li>
+                    <a href="">[注册]</a>
+                </li>
+                <li>
+                    <img src="asset/img/site_nav/store.png">
+                    <a href="">我的果果</a>
+                </li>
+                <li>
+                    <img src="asset/img/site_nav/store.png">
+                    <a href="">手机果果</a>
+                </li>
+                <li>
+                    <img src="asset/img/site_nav/store.png">
+                    <a href="">礼品券</a>
+                </li>
+                <li>
+                    <img src="asset/img/site_nav/store.png">
+                    <a href="">兑换入口</a>
+                </li>
+                <li>
+                    <img src="asset/img/site_nav/store.png">
+                    <a href="">营业门店</a>
+                </li>
+                <li>
+                    <img src="asset/img/site_nav/employ.png">
+                    <a href="">人才招聘</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--nav-->
+    <!--head-->
+    <div class="header">
+        <div class="wrapper">
+            <div class="logo">
+                <a href="#"></a>
+            </div>
+            <div class="search">
+                <div class="search_bar">
+                    <input type="text" id="search_keyword" class="search_input" placeholder="输入商品名／编号／拼音">
+                    <button class="search_btn">搜索</button>
+                </div>
+                <!--search history-->
+                <ul style="display: none"></ul>
+                <div id="keyword" class="search_keyword">
+                    <ul>
+                        <li><a href="#" target="_blank">火龙</a></li>
+                        <li><a href="#" target="_blank">火龙</a></li>
+                        <li><a href="#" target="_blank">火龙果</a></li>
+                        <li><a href="#" target="_blank">火龙</a></li>
+                        <li><a href="#" target="_blank">火龙</a></li>
+                        <li><a href="#" target="_blank">火龙果</a></li>
+                        <li><a href="#" target="_blank">火龙</a></li>
+                        <li><a href="#" target="_blank">火果</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="shopping-cart">
+                <dl>
+                    <dt class="shopping-btn"><a href="#" target="_blank">
+                        <span class="totalNum"><b>0</b></span><b class="totalPrice">0.0</b></a>
+                    </dt>
+                    <!--shopping list-->
+                    <dd class="shopping-list" style="display: none;">
+                        <div class="spacer"></div>
+                        <div class="nogoods" style="">
+                            购物车中还没有商品，赶紧选购吧！
+                        </div>
+                        <div class="goods" style="display: none;">
+                            <p id="deliveryType" style="display:none;">满100元包邮！</p>
+                            <ul></ul>
+                            <div class="price-total">
+                                <div><span class="totleNum">共<b>0</b>件商品</span><span>共计<b class="totalPrice">0.0</b></span></div>
+                                <div><a href="#" class="settleup">去购物车</a></div>
+                            </div>
+                        </div>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <!--head-->
+    <!--商品分类-->
+    <div class="header-nav">
+        <div class="wrap">
+            <div class="catalog">
+
+            </div>
+        </div>
+    </div>
+    <!--商品分类-->
+    <!--轮播图-->
+    <div class="banana-slider">
+        <div class="arrows">
+            <span title="1" class="arrow"><</span>
+            <span title="0" class="arrow" style="float: right">></span>
+        </div>
+
+        <ul class="slider_list">
+            <li class="slider_img"><img src="asset/img/banana/banana_1.jpg"></li>
+            <li class="slider_img"><img src="asset/img/banana/banana_2.jpg"></li>
+            <li class="slider_img"><img src="asset/img/banana/banana_3.jpg"></li>
+        </ul>
+
+        <div class="tooltips">
+            <div class="div_btn"></div>
+            <div class="div_btn"></div>
+            <div class="div_btn"></div>
+            <div class="div_btn"></div>
+        </div>
+    </div>
+    <!--轮播图-->
+</div>
+</body>
+</html>
