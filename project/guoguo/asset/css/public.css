@@ -1,0 +1,47 @@
+@charset "utf-8";
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-size: 12px;
+    font-family:Arial,Verdana,"\5b8b\4f53";
+}
+ul{
+    list-style-type:none;
+}
+li {
+    list-style: none;
+}
+img {
+    border: none;
+}
+a{
+    color: #444;
+    text-decoration: none;
+    outline: none;
+}
+a:hover {
+    color: #008842;
+}
+/*----------清除浮动-------------*/
+.clear {
+    clear: both;
+}
+.clearfix {
+    *zoom:1;
+}
+.clearfix:after, .wrapper:after {
+    content: ".";
+    display: block;
+    height: 5px;
+    clear: both;
+    visibility: hidden
+}
+
+/*-------------------------------*/
+/*----------公用元素-------------*/
+.wrapper{
+    width: 1200px;
+    margin: 0 auto;
+}

@@ -1,0 +1,113 @@
+@charset "utf-8";
+/*--------商品展示层引导---------*/
+.floor-guide{
+    overflow: visible;
+    display: none;
+    position: fixed;
+    top: 200px;
+    left: 50%;
+    width: 35px;
+    height: 359px;
+    margin-left: -655px;
+    z-index: 100;
+    width: 35px;
+    text-align: center;
+}
+.floor-guide a{
+    position: relative;
+    display: block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    color: #666;
+    text-decoration: none;
+    cursor: pointer;
+}
+.floor-guide b{
+    display:block;
+    width:40px;
+    height:40px;
+    visibility: visible;
+    background:url(../img/floor_guide.png) no-repeat 0px 0px;
+}
+.floor-guide em{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    visibility: hidden;
+    overflow:hidden;
+    width: 24px;
+    height: 29px;
+    padding:6px 8px;
+    line-height:14px;
+    font-style: normal;
+    color: #fff;
+    -webkit-transition: background-color .3s ease-out;
+    -moz-transition: background-color .3s ease-out;
+    -o-transition: background-color .3s ease-out;
+    transition: background-color .3s ease-out;}
+.floor-guide i{
+    display: block;
+    width: 10px;
+    margin: auto;
+    height: 0;
+    line-height: 0;
+    font-size: 0;
+    border-top: 1px solid #d7d7d7;
+}
+.floor-guide a:hover b{ visibility: hidden; }
+.floor-guide a:hover em, .floor-guide .current em{
+    visibility: visible;
+    color: #fff;
+    background-color: #008842;
+}
+.floor-guide .current { }
+.floor-guide .current b{ display:none;}
+.floor-guide .icon_11_channelhome{ background-position: -420px 0; }
+.floor-guide .icon_10_channelhome{ background-position: -280px 0; }
+.floor-guide .icon_09_channelhome{ background-position: -360px 0; }
+.floor-guide .icon_08_channelhome{ background-position: -200px 0; }
+.floor-guide .icon_07_channelhome{ background-position: -320px 0; }
+.floor-guide .icon_06_channelhome{ background-position: -120px 0; }
+.floor-guide .icon_05_channelhome{ background-position: -80px 0; }
+.floor-guide .icon_04_channelhome{ background-position: -160px 0; }
+.floor-guide .icon_03_channelhome{ background-position: -240px 0; }
+.floor-guide .icon_02_channelhome{ background-position: -40px 0; }
+.floor-guide .icon_01_channelhome{ background-position: 0 0; }
+/*-------------------------------*/
+/*-----------右侧引导------------*/
+.sidebar {
+    display:block;
+    z-index: 100;
+    position:fixed;
+    bottom: 20px;
+    right: 47%;
+    margin-right: -625px; /*IE屏幕定位*/
+    _position: absolute;
+    _bottom: auto;
+    _top:expression(eval(document.documentElement.scrollTop));
+    _margin-top: 630px; /*IE屏幕定位END*/
+    width:56px;
+}
+.w1280 .sidebar{
+    position: fixed;
+    right:7px;
+    margin-right:0;
+}
+.sidebar .s-btn {
+    overflow: hidden;
+    display: block;
+    width:50px;
+    height: 42px;
+    margin-bottom:10px;
+    background:url(../img/sidebar.png) no-repeat left top
+}
+.sidebar .goTop{
+    display:none;
+    background-position:0 0
+}
+.sidebar .service{ background-position:0 -46px;}
+.sidebar .goTop:hover{ background-position:-56px 0}
+.sidebar .service:hover{ background-position:-56px -46px}
+/*-------------------------------*/
