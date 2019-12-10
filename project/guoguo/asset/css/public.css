@@ -24,6 +24,10 @@ a{
 a:hover {
     color: #008842;
 }
+i,s{
+    display:inline-block;
+    vertical-align:middle;
+}
 /*----------清除浮动-------------*/
 .clear {
     clear: both;
@@ -45,4 +49,6 @@ a:hover {
     width: 1200px;
     margin: 0 auto;
 }
+.fl{ float:left;}
+.fr{ float:right;}
 .block{ display:block !important;}
