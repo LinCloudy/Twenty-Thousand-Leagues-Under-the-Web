@@ -64,4 +64,5 @@ $(function () {
         $(this).removeClass('current');
         $(this).find('.sub_item').hide();
     });
+
 });

@@ -28,7 +28,7 @@
     width:40px;
     height:40px;
     visibility: visible;
-    background:url(../img/floor_guide.png) no-repeat 0px 0px;
+    background:url(../img/site_nav/floor_guide.png) no-repeat 0px 0px;
 }
 .floor_guide em{
     position: absolute;
@@ -96,7 +96,7 @@
     width:50px;
     height: 42px;
     margin-bottom:10px;
-    background:url(../img/sidebar.png) no-repeat left top
+    background:url(../img/site_nav/sidebar.png) no-repeat left top
 }
 .sidebar .goTop{
     display:none;
