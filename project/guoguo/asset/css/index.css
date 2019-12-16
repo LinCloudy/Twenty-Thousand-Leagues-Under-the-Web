@@ -324,6 +324,7 @@
     float: left;
     width: 528px;
 }
+/*   [425 + padding 10*2 + border 1*2] + 81 = 528   */
 .search .search_bar .search_input{
     float: left;
     width: 425px;
