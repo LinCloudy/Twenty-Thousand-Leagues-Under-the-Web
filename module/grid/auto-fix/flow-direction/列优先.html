@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>行优先</title>
+    <link rel="stylesheet" href="../../asset/css/public.css">
+    <style>
+        .wrapper {
+            display: grid;
+            grid-template-rows: repeat(3, 1fr);
+            grid-gap: 10px;
+
+            grid-auto-flow: column;
+            grid-auto-columns: 300px 100px;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div>One</div>
+    <div>Two</div>
+    <div>Three</div>
+    <div>Four</div>
+    <div>Five</div>
+    <div>Six</div>
+    <div>Seven</div>
+    <div>Eight</div>
+</div>
+</body>
+</html>
