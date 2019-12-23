@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>由命名线隐式创建区域模板</title>
+    <link rel="stylesheet" href="../../asset/css/public.css">
+    <style>
+
+        .wrapper {
+            display: grid;
+            grid-template-columns: [main-start] 1fr [content-start] 1fr [content-end] 1fr [main-end];
+            grid-template-rows: [main-start] 100px [content-start] 100px [content-end] 100px [main-end];
+        }
+        /*不需要通过 grid-template-areas 来显式指定区域的位置，因为它已经被命名线约束好了*/
+        .thing {
+            grid-area: content;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="thing">I am placed in an area named content.</div>
+</div>
+</body>
+</html>

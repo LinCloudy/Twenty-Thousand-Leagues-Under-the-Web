@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>基于网格线</title>
+    <link rel="stylesheet" href="../../asset/css/public.css">
+    <style>
+        .wrapper {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 100px);
+        }
+        .box1 {
+            /*grid-column-start: 1;
+            !*grid-column-end: 2; !*默认跨度可省略*!*!
+            grid-row-start: 1;
+            grid-row-end: 4;*/
+
+            /*grid-column: 1;
+            grid-row: 1 / 4;*/
+
+            grid-area: 1 / 1 / 4 / 2;
+        }
+        .box2 {
+            /*grid-column-start: 3;
+            !*grid-column-end: 4; !*默认跨度可省略*!*!
+            grid-row-start: 1;
+            grid-row-end: 3;*/
+
+            /*grid-column: 3;
+            grid-row: 1 / 3;*/
+
+            grid-area: 1 / 3 / 3 / 4;
+        }
+        .box3 {
+            /*grid-column-start: 2;
+            !*grid-column-end: 3; !*默认跨度可省略*!*!
+            grid-row-start: 1;
+            !*grid-row-end: 2; !*默认跨度可省略*!*!*/
+
+            /*grid-column: 2;
+            grid-row: 1;*/
+
+            grid-area: 1 / 2;
+        }
+        .box4 {
+            /*grid-column-start: 2;
+            grid-column-end: 4;
+            grid-row-start: 3;
+            !*grid-row-end: 4; !*默认跨度可省略*!*!*/
+
+            /*grid-column: 2 / 4;
+            grid-row: 3;*/
+
+            grid-area: 3 / 2 / 4 / 4;
+        }
+
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="box1">One</div>
+    <div class="box2">Two</div>
+    <div class="box3">Three</div>
+    <div class="box4">Four</div>
+</div>
+</body>
+</html>

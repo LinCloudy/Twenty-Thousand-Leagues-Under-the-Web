@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>重复轨道列</title>
+    <link rel="stylesheet" href="../../../asset/css/public.css">
+    <style>
+
+        .wrapper {
+            display: grid;
+            grid-template-columns: repeat(6, [col1-start] 1fr [col2-start] 3fr);
+        }
+        .item1 {
+            grid-column: col1-start / col2-start 2;
+        }
+        .item2 {
+            grid-row: 2;
+            grid-column: col1-start 2 / span 2 col1-start;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="item1">I am placed from col1-start line 1 to col2-start line 2</div>
+    <div class="item2">I am placed from col1-start line 2 spanning 2 lines named col1-start</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>重复单轨道</title>
+    <link rel="stylesheet" href="../../../asset/css/public.css">
+    <style>
+        .wrapper {
+            display: grid;
+            grid-template-columns: repeat(12, [col-start] 1fr);
+        }
+        .item1 {
+            grid-column: col-start / col-start 5;
+        }
+        .item2 {
+            grid-column: col-start 7 / span 3;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="item1">I am placed from col-start line 1 to col-start 5</div>
+    <div class="item2">I am placed from col-start line 7 spanning 3 lines</div>
+</div>
+</body>
+</html>

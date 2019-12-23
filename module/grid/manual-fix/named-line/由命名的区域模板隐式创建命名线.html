@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>由命名的区域模板隐式创建命名线</title>
+    <link rel="stylesheet" href="../../asset/css/public.css">
+    <style>
+
+        .wrapper {
+            display: grid;
+            grid-template-columns: repeat(9, 1fr);
+            grid-auto-rows: minmax(100px, auto);
+            grid-template-areas:
+                    "hd hd hd hd   hd   hd   hd   hd   hd"
+                    "sd sd sd main main main main main main"
+                    "ft ft ft ft   ft   ft   ft   ft   ft";
+        }
+        .header {
+            grid-area: hd;
+        }
+        .footer {
+            grid-area: ft;
+        }
+        .content {
+            grid-area: main;
+        }
+        .sidebar {
+            grid-area: sd;
+        }
+        .wrapper > div.overlay {
+            z-index: 10;
+            grid-column: main-start / main-end;
+            grid-row: hd-start / ft-end;
+            border: 4px solid rgb(92,148,13);
+            background-color: rgba(92,148,13,.4);
+            color: rgb(92,148,13);
+            font-size: 150%;
+        }
+
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="header">Header</div>
+    <div class="sidebar">Sidebar</div>
+    <div class="content">Content</div>
+    <div class="footer">Footer</div>
+    <div class="overlay">Overlay</div>
+</div>
+</body>
+</html>
