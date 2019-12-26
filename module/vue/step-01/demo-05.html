@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../asset/js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <div v-if="show">{{msg1}}</div>
+    <!--<div v-show="show">{{msg2}}</div>-->
+    <button @click="handleClick">toggle</button>
+    <ul>
+        <li v-for="(item, index) of list" :key="index">{{item}}<--{{index}}</li>
+    </ul>
+</div>
+
+<script>
+    /*
+    * v-if  改动DOM
+    * v-show    设置display:none
+    * v-for 遍历数组
+    * */
+    new Vue({
+        el: "#root",    //挂载点
+        data: {
+            msg1: "this is v-if",
+            msg2: "this is v-show",
+            list: ["tom","bob","john"],
+            show: true
+        },
+        methods: {
+            handleClick: function () {
+                this.show = !this.show
+            }
+        }
+    })
+
+
+</script>
+</body>
+</html>

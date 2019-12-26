@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../asset/js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+    姓：<input v-model="lastName"/>
+    名：<input v-model="firstName"/>
+    <h2>{{fullName}}</h2>
+    <h2>{{count}}</h2>
+</div>
+
+<script>
+    /*
+    * 计算属性：根据依赖值得到计算结果
+    * 监听器：监听数据或者计算属性的变化触发操作
+    * */
+    new Vue({
+        el: "#root",    //挂载点
+        data: {
+            lastName: "",
+            firstName: "",
+            count: 0
+        },
+        computed: {
+            fullName: function () {
+                return this.firstName + ' ' + this.lastName
+            }
+        },
+        watch: {
+            fullName: function () {
+                this.count++
+            }
+        }
+    })
+
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../asset/js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <div>{{content}}</div>
+    <div v-text="content"></div>
+    <div v-html="content" v-on:click="handleClick"></div>
+    <div v-html="content" @click="handleClick"></div>
+</div>
+
+<script>
+    /*
+    * 展示数据：
+    * 1、插值表达式   {{}}
+    * 2、v-text  会转译
+    * 3、v-html  不会转译
+    * */
+    new Vue({
+        el: "#root",    //挂载点
+        data: {
+            content: "<h3>Hello Vue!</h3>"
+        },
+        methods: {
+            handleClick: function () {
+                alert("clicked")
+            }
+        }
+    })
+
+
+</script>
+</body>
+</html>

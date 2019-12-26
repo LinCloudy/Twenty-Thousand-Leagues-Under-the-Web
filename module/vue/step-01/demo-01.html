@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../asset/js/vue.js"></script>
+</head>
+<body>
+<div id="root">{{msg}}</div>
+
+<script>
+    //实例
+    new Vue({
+        el: "#root",    //挂载点
+        data: {
+            msg: "Hello Vue!"
+        }
+    })
+
+    /*var dom = document.getElementById("root");
+    dom.innerHTML = "Hello Vue!";*/
+</script>
+</body>
+</html>

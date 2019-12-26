@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../asset/js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <div v-bind:title="title + ' too!'">{{title}}</div>
+    <div :title="title + ' too!'">{{title}}</div>
+    <input v-model="text"/>
+    <div>{{text}}</div>
+</div>
+<script>
+    /*
+    * 属性绑定  v-bind
+    * 双向数据绑定    v-model
+    * */
+    new Vue({
+        el: "#root",    //挂载点
+        data: {
+            title: "Nice to meet you!",
+            text: "I say one! You say one!"
+
+        }
+    })
+
+</script>
+</body>
+</html>
