@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../asset/js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <input v-model="text"/>
+    <button @click="handleClick">Summit</button>
+    <ul>
+        <todo-item v-for="(item, index) of list" :key="index" :text="item" :index="index" @delete="handleDelete"></todo-item>
+        <!--<li v-for="(item, index) of list" :key="index">{{item}}</li>-->
+    </ul>
+</div>
+
+<script>
+    /*
+    * 提问：
+    * 1、组件之间怎么通信？
+    *   父组件给子组件传值，通过属性的形式传递
+    * 2、组件和实例的关系？
+    *   每一个组件都是一个实例，拥有自身的属性
+    *   如果一个实例没有定义模板，它会把挂载点下所有的DOM作为模板
+    * */
+
+    <!-- 创建一个 todo-item 组件的实例 -->
+
+    //a、定义全局组件
+    // Vue.component("todo-item",{
+    //     template: "<li>item</li>"
+    // });
+
+    //b、定义局部组件
+    //包含在父组件内，为子组件
+    var con ={
+        props: ["text", "index"],    //从父作用域将数据传到子组件，声明接收从外层传入的属性名
+        //子组件通过 prop 接口与父组件进行了良好的解耦
+        template: "<li @click='handleClick'>{{text}}</li>",
+        methods: {
+            handleClick: function () {
+                //1、子组件向外发布自定义delete事件
+                this.$emit('delete',this.index)
+            }
+        }
+    };
+
+    //最外层组件，即父组件
+    new Vue({
+        el: "#root",
+        //注册局部组件
+        components: {
+          "todo-item": con
+        },
+        data: {
+            text: "",
+            list: []
+        },
+        methods: {
+            handleClick: function () {
+                this.list.push(this.text);
+                this.text = ""
+            },
+            //2、外层，即父组件监听delete事件，触发handleDelete
+            handleDelete: function (index) {
+                this.list.splice(index, 1)
+            }
+        }
+    })
+</script>
+</body>
+</html>

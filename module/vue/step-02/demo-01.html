@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../asset/js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <input v-model="text"/>
+    <button @click="handleClick">Summit</button>
+    <ul>
+        <li v-for="(item, index) of list" :key="index">{{item}}</li>
+    </ul>
+</div>
+
+<script>
+    /*
+    * 提问：v-model:value="text" 和 v-model="text" 有什么区别？xxxxx
+    * 简单实现TodoList
+    * */
+    new Vue({
+        el: "#root",
+        data: {
+            text: "",
+            list: []
+        },
+        methods: {
+            handleClick: function () {
+                this.list.push(this.text);
+                this.text = ""
+            }
+        }
+    })
+</script>
+</body>
+</html>
