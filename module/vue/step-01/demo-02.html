@@ -6,6 +6,7 @@
     <script src="../asset/js/vue.js"></script>
 </head>
 <body>
+<div></div>
 <div id="root">
     <div>{{content}}</div>
     <div v-text="content"></div>
@@ -14,16 +15,19 @@
 </div>
 
 <script>
+    document.getElementsByTagName('div')[0].textContent="<h3>html tag content</h3>";
     /*
     * 展示数据：
     * 1、插值表达式   {{}}
-    * 2、v-text  会转译
-    * 3、v-html  不会转译
+    * 2、v-text  会转译，不解析属性值中的数据绑定
+    * 3、v-html  不会转译，不解析属性值中的数据绑定
+    *
+    * HTML 特性不解析属性值中的数据绑定，用v-bind
     * */
     new Vue({
         el: "#root",    //挂载点
         data: {
-            content: "<h3>Hello Vue!</h3>"
+            content: "<h3>Hello Vue!{{content}}</h3>"
         },
         methods: {
             handleClick: function () {
