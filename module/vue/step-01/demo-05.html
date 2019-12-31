@@ -7,8 +7,8 @@
 </head>
 <body>
 <div id="root">
-    <div v-if="show">{{msg1}}</div>
-    <!--<div v-show="show">{{msg2}}</div>-->
+    <!--<div v-if="show">{{msg1}}</div>-->
+    <div v-show="show">{{msg2}}</div>
     <button @click="handleClick">toggle</button>
     <ul>
         <li v-for="(item, index) of list" :key="index">{{item}}<--{{index}}</li>
