@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../asset/js/vue.js"></script>
+</head>
+<body>
+<!-- 添加管道符对数据进行过滤 -->
+<div id="root">{{data | formatDate}}</div>
+
+<script>
+    var preData = function (val) {
+        return val < 10 ? '0' + val : val;
+    };
+    var app = new Vue({
+        el: "#root",
+        data: {
+            data: new Date(),
+        },
+        //过滤器应当用于处理简单的文本转换，如果要实现更为复杂的数据变换，应该使用计算属性
+        filters: {
+            formatDate:function (val) {
+                var data = new Date(val);
+                var year = data.getFullYear();
+                var month = preData(data.getMonth()+1);
+                var day = preData(data.getDate());
+                var hour = preData(data.getHours());
+                var minute = preData(data.getMinutes());
+                var second = preData(data.getSeconds());
+                return year + '-'+ month + '-'+ day + ' '+ hour + ':'+ minute + ':'+ second;
+            }
+        },
+        mounted: function () {
+            var self = this;
+            this.timer = setInterval(function () {
+                self.data = new Date();
+            }, 1000);
+        },
+        beforeDestroy: function () {
+            if(this.timer){
+                clearInterval(this.timer);  //在 Vue 实例销毁前，消除定时器
+
+            }
+        }
+    })
+</script>
+</body>
+</html>
