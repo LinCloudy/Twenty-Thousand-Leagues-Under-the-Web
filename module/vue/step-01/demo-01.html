@@ -9,12 +9,19 @@
 <div id="root">{{msg}}</div>
 
 <script>
+    var info = {
+        msg: "Hello Vue!"
+    };
     //实例
-    new Vue({
-        el: "#root",    //挂载点
-        data: {
-            msg: "Hello Vue!"
-        }
+    var app = new Vue({
+        el: "#root",    //挂载点：指定一个页面中己存在的 DOM 元素来挂载 Vue 实例，它可以是 HTMLElement ，也可以是 css 选择器
+        //1、显式声明数据
+        // data: {
+        //     msg: "Hello Vue!"
+        // }
+
+        //2、指定已有变量
+        data: info
     })
 
     /*var dom = document.getElementById("root");
