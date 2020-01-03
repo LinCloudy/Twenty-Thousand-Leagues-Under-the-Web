@@ -11,15 +11,34 @@
     <div v-show="show">{{msg2}}</div>
     <button @click="handleClick">toggle</button>
     <ul>
+        <!-- key：决定是否复用元素，值必须唯一 -->
         <li v-for="(item, index) of list" :key="index">{{item}}<--{{index}}</li>
+    </ul>
+
+    <ul>
+        <template v-for="book in books">
+            <li>书名：{{book.name}}---作者：{{book.author}}</li>
+        </template>
+    </ul>
+
+    <ul>
+        <li v-for="(value, key, index) of client" >{{index}}-{{key}}: {{value}}</li>
+    </ul>
+
+    <ul>
+        <li v-for="x in 5" >{{x}}</li>
     </ul>
 </div>
 
 <script>
     /*
-    * v-if  改动DOM
-    * v-show    设置display:none
-    * v-for 遍历数组
+    * v-if  条件渲染，会改动DOM，切换开销较大，适用于不经常改变的场景
+    * v-show    设置CSS属性display（不能在<template>上使用），适用于频繁切换的场景
+    * v-for 列表渲染
+    *   1、遍历数组
+    *       <template>渲染多个元素
+    *   2、遍历对象属性
+    *   3、遍历整数
     * */
     new Vue({
         el: "#root",    //挂载点
@@ -27,7 +46,26 @@
             msg1: "this is v-if",
             msg2: "this is v-show",
             list: ["tom","bob","john"],
-            show: true
+            show: true,
+            books: [
+                {
+                    name: '《vue》',
+                    author: 'Sai'
+                },
+                {
+                    name: '《js》',
+                    author: 'Sai'
+                },
+                {
+                    name: '《css》',
+                    author: 'Sai'
+                }
+            ],
+            client: {
+                name: 'bob',
+                age: 18,
+                job: 'student'
+            }
         },
         methods: {
             handleClick: function () {
