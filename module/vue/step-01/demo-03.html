@@ -7,11 +7,12 @@
 </head>
 <body>
 <div id="root">
-    <!--该指令将该元素的 title 属性与表达式 title 的值绑定-->
+    <!-- 该指令将该元素的 title 属性与表达式 title 的值绑定 -->
     <div v-bind:title="title + ' too!'">{{title}}</div>
+    <!-- v-bind指令的语法糖，或者说缩写 -->
     <div :title="title + ' too!'">{{title}}</div>
     <br/>
-    <!--2.6.0后新增    指令动态参数-->
+    <!-- 2.6.0后新增    指令动态参数 -->
     <div v-bind:[attrName]="attributeName + ' too!'">{{title}}</div>
     <br/>
     <input v-model="text"/>

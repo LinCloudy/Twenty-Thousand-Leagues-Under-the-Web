@@ -21,7 +21,7 @@
         //过滤器应当用于处理简单的文本转换，如果要实现更为复杂的数据变换，应该使用计算属性
         filters: {
             formatDate:function (val) {
-                var data = new Date(val);
+                var data = new Date(val);   //将字符串形式的格式日期转换成日期对象
                 var year = data.getFullYear();
                 var month = preData(data.getMonth()+1);
                 var day = preData(data.getDate());
