@@ -35,7 +35,7 @@
     //b、定义局部组件
     //包含在父组件内，为子组件
     var con ={
-        props: ["text", "index"],    //从父作用域将数据传到子组件，声明接收从外层传入的属性名
+        props: ["text", "index"],    //声明要从父作用域接收的属性名
         //子组件通过 prop 接口与父组件进行了良好的解耦
         template: "<li @click='handleClick'>{{text}}</li>",
         methods: {

@@ -16,7 +16,7 @@
     </ul>
 
     <ul>
-        <template v-for="book in books">
+        <template v-for="book in filterBooks">
             <li>书名：{{book.name}}---作者：{{book.author}}</li>
         </template>
     </ul>
@@ -40,7 +40,7 @@
     *   2、遍历对象属性
     *   3、遍历整数
     * */
-    new Vue({
+    var app = new Vue({
         el: "#root",    //挂载点
         data: {
             msg1: "this is v-if",
@@ -71,8 +71,19 @@
             handleClick: function () {
                 this.show = !this.show
             }
+        },
+        computed: {
+            filterBooks: function () {
+                return this.books.filter(function (item) {
+                    return item.name.match(/css/)
+                })
+            }
         }
-    })
+    });
+
+    // app.books = app.books.filter(function (item) {
+    //     return item.name.match(/css/)
+    // })
 
 
 </script>
