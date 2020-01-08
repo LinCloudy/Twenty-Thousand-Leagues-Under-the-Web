@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../asset/js/vue.js"></script>
+    <style>
+        .title{
+            font-family: "Microsoft Himalaya";
+            font-size: 26px;
+            border-bottom:1px dashed #CCCCCC;
+            color: #255e95;
+        }
+
+        .btgn{
+            font-family: "Microsoft YaHei UI";
+            font-size: 16px;
+            color: #255e95;
+            background-color: #e9faff;
+            text-align: center;
+        }
+
+        b{
+            display: inline-block;
+            width: 21px;
+            height: 21px;
+            background-color: whitesmoke;
+            margin: auto 20px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+
+    </style>
+</head>
+<body>
+<div id="cart">
+    <table width="60%" border="0">
+        <tr>
+            <td align="center" class="title" height="60">购物单</td>
+        </tr>
+        <tr>
+            <td align="right" height="25">1984-05-05---1984-10-10</td>
+        </tr>
+    </table>
+
+    <table width="60%" border="1" cellspacing="1" cellpadding="4">
+        <thead>
+        <tr>
+            <th rowspan="1" class="btgn" ></th>
+            <th rowspan="2" class="btgn">商品名称</th>
+            <th rowspan="2" class="btgn">商品单价</th>
+            <th rowspan="2" class="btgn">购买数量</th>
+            <th rowspan="2" class="btgn">操作</th>
+        </tr>
+        </thead>
+        <tbody style="text-align: center;">
+        <template v-if="goods.length">
+            <tr v-for="(good, index) in goods">
+                <td>{{good.id}}</td>
+                <td>{{good.name}}</td>
+                <td>{{good.price}}</td>
+                <td><b @click="handleDeduceOne(index)" :disabled="good.count === 1">-</b>{{good.count}}<b @click="handleAddOne(index)">+</b></td>
+                <td><button @click="handleDelete(index)">delete</button></td>
+            </tr>
+        </template>
+
+        <template v-else>
+            <tr>
+                <td></td>
+                <td colspan="4">购物车为空</td>
+            </tr>
+        </template>
+        <tr>
+            <td>总计</td>
+            <td colspan="4">{{totalPay}}</td>
+        </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+
+
+<script>
+    var app = new Vue({
+        el: "#cart",
+        data: {
+            goods: [
+                {
+                    id: 1,
+                    name: "apple",
+                    price: "6",
+                    count: 1
+                },
+                {
+                    id: 2,
+                    name: "orange",
+                    price: "3",
+                    count: 1
+                },
+                {
+                    id: 3,
+                    name: "grape",
+                    price: "1",
+                    count: 1
+                }
+            ],
+        },
+        computed: {
+            totalPay: function () {
+                var sum = 0;
+                for (var i = 0; i < this.goods.length; i++){
+                    sum += this.goods[i].price * this.goods[i].count;
+                }
+                return sum;
+            }
+        },
+        methods: {
+            handleDeduceOne: function (index) {
+                if(this.goods[index].count === 1) return;
+                this.goods[index].count--;
+            },
+            handleAddOne: function (index) {
+                this.goods[index].count++;
+            },
+            handleDelete: function (index) {
+                this.goods.splice(index, 1)
+            }
+        }
+    });
+</script>
+</body>
+</html>
