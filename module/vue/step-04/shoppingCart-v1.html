@@ -47,7 +47,7 @@
     <table width="60%" border="1" cellspacing="1" cellpadding="4">
         <thead>
         <tr>
-            <th rowspan="1" class="btgn" ></th>
+            <th rowspan="1" class="btgn" > <input type="checkbox" v-model="allChecked" @click="checkAll">全选</th>
             <th rowspan="2" class="btgn">商品名称</th>
             <th rowspan="2" class="btgn">商品单价</th>
             <th rowspan="2" class="btgn">购买数量</th>
@@ -56,8 +56,8 @@
         </thead>
         <tbody style="text-align: center;">
         <template v-if="goods.length">
-            <tr v-for="(good, index) in goods">
-                <td>{{good.id}}</td>
+            <tr v-for="(good, index) in goods" :key="index">
+                <td><input type="checkbox" name="good-box" :price="good.price" :count="good.count" v-model="good.isChecked"/>{{good.id}}</td>
                 <td>{{good.name}}</td>
                 <td>{{good.price}}</td>
                 <td><b @click="handleDeduceOne(index)" :disabled="good.count === 1">-</b>{{good.count}}<b @click="handleAddOne(index)">+</b></td>
@@ -92,30 +92,63 @@
                 {
                     id: 1,
                     name: "apple",
-                    price: "6",
-                    count: 1
+                    price: 6,
+                    count: 1,
+                    isChecked: false
                 },
                 {
                     id: 2,
                     name: "orange",
-                    price: "3",
-                    count: 1
+                    price: 3,
+                    count: 1,
+                    isChecked: false
                 },
                 {
                     id: 3,
                     name: "grape",
-                    price: "1",
-                    count: 1
+                    price: 1,
+                    count: 1,
+                    isChecked: false
                 }
             ],
+            // 选中的商品数量
+            total: 0,
+            // 商品总价格
+            totalPrice: 0,
+            allChecked: false   // 是否已全选
         },
         computed: {
             totalPay: function () {
                 var sum = 0;
-                for (var i = 0; i < this.goods.length; i++){
-                    sum += this.goods[i].price * this.goods[i].count;
+                var checkedGoods = document.getElementsByName("good-box");
+
+                // for (var i = 0; i < this.goods.length; i++){
+                //     sum += this.goods[i].price * this.goods[i].count;
+                // }
+                for (var i = 0; i < checkedGoods.length; i++){
+                    if(checkedGoods[i].checked == true){
+                        sum += checkedGoods[i].price * checkedGoods[i].count;
+                    }
                 }
+
+
                 return sum;
+            },
+            // 计算选中的商品数量,总价格及判断是否全选
+            getTotal() {
+                let count = 0,
+                    totalPrice = 0,
+                    list = this.goods;
+                list.forEach(element => {
+                    if (element.isChecked) {
+                        count++;
+                        totalPrice += element.price;
+                    }
+                });
+                this.totalPrice = totalPrice;
+                this.total = count;
+                this.AllChecked = count === this.list.length;
+                return count;
             }
         },
         methods: {
@@ -128,6 +161,18 @@
             },
             handleDelete: function (index) {
                 this.goods.splice(index, 1)
+            },
+            checkAll: function () {
+                var list = this.goods;
+                if (this.total === list.length) {
+                    list.forEach(element => {
+                        element.isChecked = false;
+                    });
+                } else {
+                    list.forEach(element => {
+                        element.isChecked = true;
+                    });
+                }
             }
         }
     });
