@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../asset/css/public.css">
+    <style>
+        .wrapper {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;  /* 默认值，超过容器主轴尺寸不换行，子元素缩小适应容器，如果无法缩小则溢出 */
+            /*flex-wrap: wrap;*/
+
+            /* 简写 */
+           /* flex-flow: row nowrap;*/
+        }
+        .wrapper div{
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <div>One</div>
+    <div>Two</div>
+    <div>Three
+        <br>has
+        <br>extra
+        <br>text
+    </div>
+    <div>Four</div>
+    <div>Five</div>
+    <div>Six
+        <br>has
+        <br>extra
+        <br>text
+    </div>
+</div>
+</body>
+</html>

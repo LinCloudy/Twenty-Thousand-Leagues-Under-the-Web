@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../asset/css/public.css">
+    <style>
+        .wrapper {
+            display: flex;
+            flex-direction: row;    /* 默认值，左→右 */
+            /*flex-direction: row-reverse;*/
+            /*flex-direction: column;   !* 上→下 *!*/
+            /*flex-direction: column-reverse;*/
+        }
+    </style>
+</head>
+<body>
+<script>
+    /*
+    * 创建flex容器，其直系子元素变为flex元素，有以下初始行为：
+    *   1、子元素从主轴起始线开始根据默认 flex-direction 方向排成一行
+    *   2、子元素不会在主轴维度方向拉伸，但是可以缩小；在交叉轴维度拉伸填充交叉轴大小
+    *   3、flex-basis 为默认 auto；flex-wrap 为默认 nowrap
+    * */
+</script>
+<div class="wrapper">
+    <div>One</div>
+    <div>Two</div>
+    <div>Three
+        <br>has
+        <br>extra
+        <br>text
+    </div>
+</div>
+</body>
+</html>
