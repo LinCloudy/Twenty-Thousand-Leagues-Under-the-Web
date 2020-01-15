@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../asset/css/public.css">
+    <style>
+        .wrapper {
+            display: flex;
+            flex-flow: row nowrap;
+        }
+        .wrapper div:nth-child(1){
+            /*flex-grow: 1;
+            flex-shrink: 1;
+            flex-basis: 0;*/
+
+            flex: 1 1 0;    /* 等同于 flex: 1 */
+        }
+        .wrapper div:nth-child(2){
+            flex: 1 1 0;
+        }
+        .wrapper div:nth-child(3){
+            flex: 1 1 0;
+        }
+    </style>
+</head>
+<body>
+<script>
+    /*
+    * 子元素 flex-basis 都为0，伸缩时不考虑初始尺寸，均分容器所有空间
+    * */
+</script>
+<div class="wrapper">
+    <div>short</div>
+    <div>looooooong</div>
+    <div>short</div>
+</div>
+</body>
+</html>

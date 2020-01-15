@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../asset/css/public.css">
+    <style>
+        .wrapper {
+            display: flex;
+            flex-flow: row nowrap;
+        }
+        .wrapper div:nth-child(1){
+            flex-grow: 1;
+        }
+        .wrapper div:nth-child(2){
+            flex-grow: 1;
+        }
+        .wrapper div:nth-child(3){
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body>
+<script>
+    /*
+    * 子元素 flex-grow 都为1，均分容器剩余空间
+    * */
+</script>
+<div class="wrapper">
+    <div>One</div>
+    <div>Two</div>
+    <div>Three
+        <br>has
+        <br>extra
+        <br>text
+    </div>
+</div>
+</body>
+</html>
