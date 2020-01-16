@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../asset/css/public.css">
+    <style>
+        .wrapper {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            align-items: center;
+            align-content: flex-start;  /* [多行]控制多行主轴项目在交叉轴方向对齐 flex-start | flex-end | center | space-between | space-around | stretch */
+        }
+        .wrapper div{
+            width: 300px;
+        }
+        .wrapper div:nth-child(1){
+            align-self: flex-start;     /* 不生效 */
+        }
+    </style>
+</head>
+<body>
+<script>
+    /*
+    * 注意：
+    *   1、对于单个或单行的垂直居中，适用 align-items
+    *   2、对于多行或整体的垂直居中，适用 align-content
+    *       2.1、当定义了 align-content 时，align-self 不生效
+    * */
+</script>
+<div class="wrapper">
+    <div>One</div>
+    <div>Two</div>
+    <div>Three
+        <br>has
+        <br>extra
+        <br>text
+    </div>
+    <div>Four</div>
+    <div>Five</div>
+    <div>Six
+        <br>has
+        <br>extra
+        <br>text
+    </div>
+</div>
+</body>
+</html>

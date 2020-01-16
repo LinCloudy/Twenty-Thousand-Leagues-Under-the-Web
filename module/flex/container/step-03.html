@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../asset/css/public.css">
+    <style>
+        .wrapper {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;    /* [单/多行]控制主轴方向对齐 flex-start | flex-end | center | space-around | space-between | stretch */
+            align-items: center;    /* [单行]控制交叉轴方向对齐 flex-start | flex-end | center | baseline | stretch */
+        }
+        .wrapper div{
+            width: 300px;
+        }
+        .wrapper div:nth-child(1){
+            align-self: flex-start;     /* [单个] 控制单个交叉轴方向对齐 auto | flex-start | flex-end | center | baseline | stretch */
+        }
+    </style>
+</head>
+<body>
+<script>
+    /*
+    * 同时设置两轴居中对齐来实现垂直居中
+    * */
+</script>
+<div class="wrapper">
+    <div>One</div>
+    <div>Two</div>
+</div>
+</body>
+</html>
