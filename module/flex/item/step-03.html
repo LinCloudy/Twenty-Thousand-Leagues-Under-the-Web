@@ -15,6 +15,9 @@
             flex-basis: 0;*/
 
             flex: 1 1 0;    /* 等同于 flex: 1 */
+
+            /* 区分 */
+            /*flex: 1 1 auto;     !* 等同于 flex: auto *! */
         }
         .wrapper div:nth-child(2){
             flex: 1 1 0;
@@ -28,6 +31,7 @@
 <script>
     /*
     * 子元素 flex-basis 都为0，伸缩时不考虑初始尺寸，均分容器所有空间
+    * 子元素 flex-basis 都为auto，伸缩时考虑初始尺寸，均分容器剩余空间
     * */
 </script>
 <div class="wrapper">
