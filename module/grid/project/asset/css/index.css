@@ -29,12 +29,14 @@
 }
 .profile-img {
     grid-area: image;
+    margin: 0 auto;
 }
 .social-list {
     grid-area: social;
 }
 
 .profile-info {
+    margin-top: -0.1em;
     font-weight: 300;
     opacity: 0.7;
 }
