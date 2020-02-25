@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input:checked + span {
+            background: red;
+        }
+        input:checked + span::after {
+            content: " 被妖怪抓走了";
+        }
+    </style>
+</head>
+<body>
+<body>
+<form method="post" action="#">
+    <fieldset>
+        <legend>单选</legend>
+        <ul>
+            <li><label><input type="radio" name="colour-group" value="0" /><span>二师兄</span></label></li>
+            <li><label><input type="radio" name="colour-group" value="1" /><span>沙师弟</span></label></li>
+            <li><label><input type="radio" name="colour-group" value="2" /><span>师傅</span></label></li>
+        </ul>
+    </fieldset>
+    <fieldset>
+        <legend>勾选</legend>
+        <ul>
+            <li><label><input type="checkbox" name="colour-group2" value="0" /><span>二师兄</span></label></li>
+            <li><label><input type="checkbox" name="colour-group2" value="1" /><span>沙师弟</span></label></li>
+            <li><label><input type="checkbox" name="colour-group2" value="2" /><span>师傅</span></label></li>
+        </ul>
+    </fieldset>
+</form>
+</body>
+</body>
+</html>

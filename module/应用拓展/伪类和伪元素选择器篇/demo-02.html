@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>magic checkbox</title>
+    <style>
+        .magic-checkbox {
+            position: absolute;
+            display: none;  /*先隐藏真正的checkboxbox*/
+        }
+        .magic-checkbox + label {/*为与checkbox搭配的label使用样式*/
+            position: relative; /*相对定位，方便其内容的伪元素进行定位*/
+            display: block; /*块元素*/
+            padding-left: 30px;
+            cursor: pointer;
+            vertical-align: middle;
+        }
+        .magic-checkbox + label::before { /*label添加:before伪元素，用于生成一个带边界的正方形，模拟复选框的轮廓*/
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            content: '';
+            border: 1px solid #c0c0c0;
+            border-radius: 3px;
+        }
+        /*为checkbox添加:after伪元素，作用是生成一个√图形，模拟checkbox选中状态，未选中状态下会被隐藏*/
+        .magic-checkbox + label::after {
+            top: 2px;
+            left: 7px;
+            box-sizing: border-box;
+            width: 6px;  /*实现√图形很简单：设置一个长方形，去掉其上边界和左边界，剩下的2个边界旋转45度就得到√形状*/
+            height: 12px;
+            transform: rotate(45deg);
+            border-width: 2px;
+            border-style: solid;
+            border-color: #fff;
+            border-top: 0;
+            border-left: 0;
+            position: absolute;
+            display: none; /*√形状先隐藏*/
+            content: '';
+        }
+        /*单击label，隐藏的checkbox为checked状态，这时设置checked状态下搭配label的:before伪元素背景和边界颜色*/
+        .magic-checkbox:checked + label::before {
+            animation-name: none;
+            border: #3e97eb;
+            background: #3e97eb;
+        }
+        /*checked状态的checkbox搭配的label伪元素:after此时设置显示，那么√就显示出来了*/
+        .magic-checkbox:checked + label::after {
+            display: block;
+        }
+    </style>
+
+</head>
+<body>
+<div>
+    <input class="magic-checkbox" type="checkbox" name="layout" id="1">
+    <label for="1">Normal</label>
+</div>
+</body>
+</html>

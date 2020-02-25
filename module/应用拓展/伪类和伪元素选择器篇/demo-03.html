@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表格数据美化</title>
+    <style>
+        table{overflow: hidden;}
+        td, th{
+            padding: 10px;
+            position: relative;
+            outline: 0;
+        }
+        td:hover::after,
+        th:hover::after {
+            content: '';
+            background-color: lightblue;
+            position: absolute;
+            left: 2px;
+            height: 10000px;
+            top: -5000px;
+            width: 100%;
+            z-index: -1;
+        }
+
+        td:hover::before {
+            background-color: lightblue;
+            content: '';
+            height: 100%;
+            top: 2px;
+            left: -5000px;
+            position: absolute;
+            width: 10000px;
+            z-index: -1;
+        }
+
+    </style>
+</head>
+<body>
+<table>
+    <tr>
+        <th></th>
+        <th>a</th>
+        <th>a</th>
+        <th>a</th>
+    </tr>
+    <tr>
+        <th>a</th>
+        <td>100</td>
+        <td>200</td>
+        <td>300</td>
+    </tr>
+    <tr>
+        <th>a</th>
+        <td>400</td>
+        <td>500</td>
+        <td>600</td>
+    </tr>
+    <tr>
+        <th>a</th>
+        <td>400</td>
+        <td>500</td>
+        <td>600</td>
+    </tr>
+</table>
+</body>
+</html>
