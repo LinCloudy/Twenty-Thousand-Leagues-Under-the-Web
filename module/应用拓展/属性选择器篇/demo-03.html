@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商品展示标签</title>
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        .g-wrap {
+            position: absolute;
+            cursor: pointer;
+        }
+
+        img {
+            position: relative;
+            width: 300px;
+        }
+
+        [desc1]::before,
+        [desc2]::after {
+            position: absolute;
+            padding: 4px 10px 4px 20px;
+            font-size: 12px;
+            color: #333;
+            z-index: 10;
+            opacity: 0;
+            transition: all .5s;
+        }
+
+        [desc1]::before {
+            content: attr(desc1);
+            right:2%;
+            top: 10%;
+            background:
+                    radial-gradient(10px at 12% 50% , #333 0%, #333 2.5px, transparent 2.5px),
+                    linear-gradient(135deg, transparent 7px, #fff 7px, #fff 100%) top left,
+                    linear-gradient(45deg, transparent 7px, #fff 7px, #fff 100%) bottom left;
+            background-size: 100% 100%, 100% 50%, 100% 50%;
+            background-position: 0 0 ,0 0, 0 100%;
+            background-repeat: no-repeat;
+            transform: translate(30px, 0);
+        }
+
+        [desc2]::after {
+            content: attr(desc2);
+            left:8%;
+            bottom: 20%;
+            padding: 4px 20px 4px 10px;
+            background:
+                    radial-gradient(10px at 88% 50% , #333 0%, #333 2.5px, transparent 2.5px),
+                    linear-gradient(-135deg, transparent 7px, #fff 7px, #fff 100%) top left,
+                    linear-gradient(-45deg, transparent 7px, #fff 7px, #fff 100%) bottom left;
+            background-size: 100% 100%, 100% 50%, 100% 50%;
+            background-position: 0 0 ,0 0, 0 100%;
+            background-repeat: no-repeat;
+            transition-delay: .2s;
+            transform: translate(-30px, 0);
+        }
+
+        [desc1]:hover::before,
+        [desc2]:hover::after{
+            opacity: 1;
+            transform: translate(0px, 0);
+        }
+
+    </style>
+</head>
+<body>
+<div class="g-wrap" desc1="商品描述AAA" desc2="商品描述BBB">
+    <img src="../../asset/img/img1.jpg" height="300" width="533" alt=""/>
+</div>
+</body>
+</html>

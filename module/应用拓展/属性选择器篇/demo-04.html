@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML下载属性提示</title>
+    <style>
+        body {
+            padding: 10px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        [download] {
+            position: relative;
+            color: hotpink;
+        }
+
+        [download]:hover::before {
+            content: "点击可下载此资源！";
+            position: absolute;
+            bottom: -30px;
+            left: 10px;
+            width: 128px;
+            padding: 5px;
+            font-size: 14px;
+            color: #ffcc00;
+            background: #333;
+        }
+
+    </style>
+</head>
+<body>
+<p>
+    这是一段描述性文字 <a href="https://www.xxx.com/logo.png" download="logo">logo</a>，中间嵌入一个 a 标签
+</p>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图文提示链接协议类型</title>
+    <script>
+        /*
+        * 将小绿锁的图片使用 base64 嵌入到伪元素当中，简单的使用 text-indent 控制图文的排布
+        * */
+    </script>
+    <style>
+        body {
+            padding: 10px;
+        }
+
+        a {
+            position: relative;
+            display: block;
+            color: blue;
+            font: 18px/3 sans-serif;
+            text-decoration: none;
+            transition: .5s all;
+            color: #333;
+        }
+
+        a[href^="https:"]::before {
+            content: "";
+            position: relative;
+            left: 0px;
+            top: 0px;
+            padding-left: 0;
+            background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAb0lEQVQoz2NkQAJc5aIc//7962VgYIiDCi1iYmIq/tb5+gdMDROyBqhiGWYmJlVmJiZVBgYGGagYdsBRKvyZu1xUAsbnLheV4CgV/oxbQ4nwf0JiTAwkAkaIU4QaGf4z1uFX+b/pR/e7epJtGJEaAKDXHzEJ3KYmAAAAAElFTkSuQmCC");
+            background-repeat: no-repeat;
+            background-position: 0 center;
+            z-index: 10;
+            transition: .5s all;
+        }
+
+        a:hover {
+            color: blue;
+        }
+
+        a[href^="https:"]:hover::before {
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+<a href="http://www.xxx.com">这是一个 http 跳转连接</a>
+<a href="https://www.xxx.com">这是一个 https 跳转连接</a>
+</body>
+</html>

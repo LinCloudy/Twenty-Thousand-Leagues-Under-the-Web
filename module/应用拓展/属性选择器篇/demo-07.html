@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文件资源下载类型提示</title>
+    <style>
+        ul {
+            width: 500px;
+            margin: 0 auto;
+        }
+
+        li {
+            height: 40px;
+            line-height: 40px;
+        }
+
+        a {
+            position: relative;
+            text-decoration: none;
+            color: #333;
+        }
+
+        a[href]::before {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            padding: 0 4px;
+            font: 14px/1.5 sans-serif;
+            transform: translate(-110%, -50%);
+            color: #fff;
+        }
+
+        a[href$=".doc" i]::before {
+            content: "doc";
+            background: #a9c4f5;
+        }
+        a[href$=".ppt" i]::before {
+            content: "ppt";
+            background: #f8e94f;
+        }
+        a[href$=".pdf" i]::before {
+            content: "pdf";
+            background: #fb807a;
+        }
+        a[href$=".mp3" i]::before {
+            content: "mp3";
+            background: #cb5cf5;
+        }
+        a[href$=".avi" i]::before {
+            content: "avi";
+            background: #5f8ffc;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li><a href="xxx.doc">Word File</a></li>
+    <li><a href="xxx.ppt">PPT File</a></li>
+    <li><a href="xxx.PDF">PDF File</a></li>
+    <li><a href="xxx.MP3">MP3 File</a></li>
+    <li><a href="xxx.avi">AVI File</a></li>
+</ul>
+</body>
+</html>
