@@ -28,6 +28,7 @@ body {
     font-size: 13px;
     margin-left: -60px;
     cursor: pointer;
+    position: relative;
 }
 #bulletin ul{
     list-style: none;
@@ -43,6 +44,15 @@ body {
     line-height: 20px;
     margin-left: 6px;
 }
+#locationAnchor{
+    position: absolute;
+    top: 30px;
+    right: 36px;
+    font-size: 36px;
+    color: #ff7d23;
+    font-family: "宋体";
+    font-weight: 700;
+}
 .local_info {
     width: 200px;
     height: 258px;
@@ -51,7 +61,7 @@ body {
     border-radius: 20px;
     filter: drop-shadow(2px 2px 10px rgba(0,0,0,.6));
 }
-.local_info:after {
+/*.local_info:after {
     content: '';
     display: block;
     width: 40px;
@@ -62,7 +72,7 @@ body {
     left: -20px;
     top: 45%;
     transform:rotate(45deg);
-}
+}*/
 .local_context{
     line-height: 20px;
     font-size: 14px;
@@ -99,6 +109,7 @@ body {
     width: 978px;
     height: 46px;
     background-image:url(../img/title.jpg);
+    background-position-x: -80px;
     background-repeat: no-repeat;
 }
 .content{

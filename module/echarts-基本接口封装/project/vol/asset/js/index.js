@@ -1153,7 +1153,16 @@ $(function() {
         });
 
         myChart.on('click', function(params) {
-            //console.log(params.name);
+            console.log(params.name);
+            console.log(dataTest[0][params.name].totalVolunteers);
+            /*var totalVolunteers = dataTest[0][params.name].totalVolunteers,
+                        totalVolunteerActivityNum = dataTest[0][params.name].totalVolunteerActivityNum,
+                        totalServiceTime = Math.round(parseInt(dataTest[0][params.name].totalServiceTime)/60);*/
+            $('#locationAnchor').text(params.name);
+            initBulletin(dataTest[0][params.name].totalVolunteers,dataTest[0][params.name].totalVolunteerActivityNum,Math.round(parseInt(dataTest[0][params.name].totalServiceTime)));
+            /*$('#volunteerTotalNum').text(dataTest[0][params.name].totalVolunteers);
+            $('#volunteerActivityTotalNum').text(dataTest[0][params.name].totalVolunteerActivityNum);
+            $('#serviceTotalTime').text(Math.round(parseInt(dataTest[0][params.name].totalServiceTime)/60));*/
             var chart1 = $('#data1').highcharts();
             while(chart1.series.length) {
                 chart1.series[0].remove();
@@ -1165,6 +1174,7 @@ $(function() {
             chart1.xAxis[0].setCategories(dataTest[0][params.name].towns);
 
             /*------解决地市不同数量级数据显示不出------*/
+
             var volunteersNumInCity = dataTest[0][params.name].volunteersNum;
             var serviceTimeInCity = dataTest[0][params.name].serviceTime;
 
@@ -1268,19 +1278,29 @@ $(function() {
         });
     });
     initChart();
+    initBulletin(dataInProvince.totalVolunteers,dataInProvince.totalVolunteerActivityNum,dataInProvince.totalServiceTime);
 });
-var initChart = function () {
+//图表初始化
+function initChart() {
     pieInit();
     barInit();
-    initBulletin();
-};
+    /*initBulletin();*/
+}
+function initChart2() {
+    pieInit();
+    barInit();
+    $('#locationAnchor').text('江西');
+    initBulletin(dataInProvince.totalVolunteers,dataInProvince.totalVolunteerActivityNum,dataInProvince.totalServiceTime)
+    /*initBulletin();*/
+}
 
-var initBulletin = function () {
-    $('#volunteerTotalNum').text(dataInProvince.totalVolunteers);
-    $('#volunteerActivityTotalNum').text(dataInProvince.totalVolunteerActivityNum);
-    $('#serviceTotalTime').text(dataInProvince.totalServiceTime);
-    dancingNumCount();
-};
+//展示框
+function initBulletin(a,b,c) {
+    $('#volunteerTotalNum').text(a);
+    $('#volunteerActivityTotalNum').text(b);
+    $('#serviceTotalTime').text(c / 60);
+    dancingNumCount(a,b,c);
+}
 
 //后台数据数组
 var data = [jsonOf1,jsonOf2,jsonOf3,jsonOf4,jsonOf5,jsonOf6,jsonOf7,jsonOf8,jsonOf9,jsonOf10,jsonOf11];
@@ -1681,23 +1701,24 @@ var options = {
     prefix: '',
     suffix: ''
 };
-var dancingNum1 = new CountUp("volunteerTotalNum", 0, dataInProvince.totalVolunteers, 0, 2, options);
-var dancingNum2 = new CountUp("volunteerActivityTotalNum", 0, dataInProvince.totalVolunteerActivityNum, 0, 2, options);
-var dancingNum3 = new CountUp("serviceTotalTime", 0, dataInProvince.totalServiceTime, 0, 2, options);
-var dancingNumCount = function() {
+
+function dancingNumCount(a,b,c) {
+    var dancingNum1 = new CountUp("volunteerTotalNum", 0, a, 0, 2, options);
+    var dancingNum2 = new CountUp("volunteerActivityTotalNum", 0, b, 0, 2, options);
+    var dancingNum3 = new CountUp("serviceTotalTime", 0, c/60, 0, 2, options);
     dancingNum1.reset();
     dancingNum1.start(function () {
-        dancingNum1.update(dataInProvince.totalVolunteers);
+        dancingNum1.update(a);
     });
     dancingNum2.reset();
     dancingNum2.start(function () {
-        dancingNum2.update(dataInProvince.totalVolunteerActivityNum);
+        dancingNum2.update(b);
     });
     dancingNum3.reset();
     dancingNum3.start(function () {
-        dancingNum3.update(dataInProvince.totalServiceTime);
+        dancingNum3.update(c/60);
     });
-};
+}
 /*---------数字跳动效果结束----------*/
 
 //判断变量是否存在，返回Boolean值
