@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="asset/css/design.css">
+</head>
+<body>
+<article><header>
+    <!-- date published or updated -->
+    <time pubdate="" datetime="2018-03-13T00:57:00+00:00">
+        <sup>12:57<abbr>am</abbr> • 2018</sup>
+        <abbr title="March">Mar</abbr> 13
+    </time>
+    <!-- categories -->
+    <ul>
+        <li><a href="/blog/unshaven-yaks" rel="bookmark tag">blog</a></li>
+        <li><a href="/web-dev/unshaven-yaks">web-dev</a></li>
+        <li><a href="/annoyances/unshaven-yaks">annoyances</a></li>
+        <li><a href="/inspiration/unshaven-yaks">inspiration</a></li>
+    </ul>
+    <!-- licence -->
+    <small>
+        <a rel="license" href="http://creativecommons.org/licenses/by/3.0/deed.en_GB">c</a>
+        share + remix
+    </small>
+</header>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <section>
+        <h1>Unshaven Yaks</h1>
+        <blockquote>
+            <p>
+                It’s unshaven yaks all the way down
+            </p>
+            <cite><cite><a href="https://twitter.com/a2_4am/status/966074942398894084">@4am</a></cite></cite>
+        </blockquote>
+        <p>
+            Nothing else I've come across has quite been able to explain the last 5 years of my programming and development work
+            than this quote — what I've been doing personally for the last 5 years I will cover in another blog post soon, if
+            you’ve just had the shock of your life seeing something new from me in your RSS reader. It’s that Kroc guy.
+        </p><p>
+        A little explanation will be needed. Firstly, <a href="https://en.wiktionary.org/wiki/yak_shaving">“yak
+        shaving”</a> is when, in order to complete one task you have to do some other minor task first, which in turn
+        relies on another task… and before you know it, you’re standing in a field shaving yaks. It’s the process of
+        being so far removed from your original goal that you are busy doing something seemingly unrelated and have lost all
+        sight of progress.
+    </p><p>
+        Combine this with <a href="https://en.wikipedia.org/wiki/Turtles_all_the_way_down">“It’s turtles all the way
+        down”</a> and you have one of the most succinct ways in English to explain the phenomenon of attempting to
+        develop a product, only to find that some dependency you rely on is not good enough and you have to replace it
+        yourself, which then leads on to yet another dependency, and so on until you begin to consider “how difficult
+        would it be to develop my own CPU?”. Every time you peek under the current abstraction layer, you find that
+        “computers are fractally awful”.
+    </p>
+
+
+        <h2>Things Have to Get Worse Before They Can Get Better</h2>
+        <p>
+            I've been away from web-development since 2013 and my, oh my, how things have gotten worse, haven’t they?
+        </p><p>
+        Actually, this is kind of to be expected, it happens in every industry. What we are seeing is the younger generation
+        taking over from the old guard. Those who were doing web-development in the ’90s are retiring or moving on and
+        we’re seeing the result of a lot of fresh blood coming in and repeating all the mistakes of the past.
+    </p><p>
+        What has changed — is different than the past — is that basic access to so much of the web is
+        <a href="http://www.haneycodes.net/npm-left-pad-have-we-forgotten-how-to-program/"><em>dependent</em></a> on so
+        many first-time programmers who literally don’t know the word “security”.
+    </p>
+        <blockquote>
+            <p>
+                Although jQuery is an immensely popular library, the fact that searching for “security” or
+                “vulnerability” in the official learning centre returns “Apologies, but nothing matched your search
+                criteria” is an excellent summary of the state of JavaScript library security on the Internet, circa
+                August 2016.
+            </p>
+            <cite><cite><a href="http://www.ccs.neu.edu/home/arshad/publications/ndss2017jslibs.pdf" type="application/pdf">Thou Shalt Not Depend on Me: Analysing the Use of Outdated JavaScript Libraries on the Web</a></cite></cite>
+        </blockquote>
+        <p>
+            That is not to say that I could do a better job — I expect many of the people behind the major JavaScript systems
+            have <dfn title="Computer Science">CS</dfn> degrees; I do not; I'm self taught and lack a mathematical background,
+            but as someone who has striven for <a href="/dom_templating">clean separation of presentation and logic</a>,
+            it’s the proliferation of a ‘JavaScript first’ mentality that saddens me the most.
+        </p><p>
+        HTML does not need maintenance. It will still be readable, you will still be able to ‘get at it’ in a hundred
+        years time, even if you have to write a parser to do so; but JavaScript? How will you know what any of it
+        <em>does</em> in a hundred years time? What content will be lost, buried in all this nonsense?
+    </p>
+
+
+        <h2>What Do We Have Now?</h2>
+        <p>
+            Putting JavaScript aside entirely, things are actually really great. Web browsers have gotten infinitely better in
+            the last five years and the entire <em>process</em> of HTML / CSS specification and rollout to browsers is like a
+            slow-moving but essentially unstoppable steam-roller.
+        </p><p>
+        When I <a href="/welcome">last updated this site</a>, HTML5 was still a big ‘maybe’, hanging upon Microsoft
+        dragging their feet. I could not have predicted the Microsoft we have now, back then.
+    </p>
+        <blockquote>
+            <p>
+                Web-development news these days generally consists of: ‘Here’s a chart of compatibility, Microsoft
+                isn’t on it.’
+            </p>
+            <cite><cite>Kroc Camen, <a href="/compatibility_chart">29<sup>th</sup> October 2009</a></cite></cite>
+        </blockquote>
+        <p>
+            Heck, the site as it stands at the time of publishing <em>still</em> works in Firefox 3.0 (we’re on version 59
+            right now) or <a href="http://caminobrowser.org/"><em>Camino 2.0</em></a> (do you remember that??) via specialised
+            fall-back CSS!
+        </p>
+        <figure>
+            <figcaption></figcaption>
+            <a href="blog/welcome/lofi.png" type="image/png">
+                <img src="blog/welcome/lofi_thumb.jpg" alt="Screenshot of this website running on the Camino 2.0 / Mac web-browser" width="600" height="450">
+            </a>
+            <figcaption>Camen Design on Camino 2.0 / Mac, circa 2009</figcaption>
+        </figure>
+
+
+        <h2>What Do I Have to Prove Now?</h2>
+        <p>
+            Nothing — you have to remember that when I first made this website, it was <em>the</em> most provocatively
+            unflinching commentary on web-design at that time:
+        </p>
+        <blockquote>
+            <p>
+                Dizzy. I’ve just read a whole damn website from A to Z, including the source code. One night and my
+                cognition changed.
+            </p>
+            <cite><cite><a href="https://twitter.com/riddle/status/2060174897">@riddle 6<sup>th</sup> June 2009</a></cite></cite>
+        </blockquote>
+        <aside>
+            1. v0.1 of the site did have one span, which was later removed<br>
+            2. IDs are used only for headings, no CSS is attached to them
+        </aside>
+        <p>
+            When everybody was poo-pooing HTML5 because “what about Internet Explorer?”, here I was publishing the first
+            unashamedly HTML5 blog produced with no <samp>&lt;div&gt;</samp>s, no <samp>&lt;span&gt;</samp>s<sup>1</sup>, no
+            JavaScript and no CSS IDs<sup>2</sup>. I can safely say I had a website whose source code was prettier and nicer to
+            read than many regular websites.
+        </p>
+        <blockquote>
+            <p>
+                view source = wow. code really can be art.
+            </p>
+            <cite><cite><a href="https://twitter.com/alex_gibson/status/2244093751">@alex_gibson 19<sup>th</sup> June 2009</a></cite></cite>
+        </blockquote>
+        <p>
+            That was what mattered then, but doesn’t matter now. The proliferation of JavaScript-first mentality and mobile
+            devices / browsers has removed the accessibility and desire to view the original source code of web sites. You
+            practically have to be a ‘developer’ with specialist ‘developer tools’ to view a website’s source code
+            now; hardly inviting for the uninitiated.
+        </p><p>
+        I was a lot more angry, inexperienced and defiant in those times. For the here and now I know that making something
+        utterly bleeding edge that would only work correctly on 25% of devices would not prove anything these days —
+        It’s not bleeding edge that the world needs now, it’s better quality engineering.
+    </p>
+
+
+        <h2>The Fear That Finds Us; the Fear That Binds Us</h2>
+        <p>
+            The point is that, with the mental and physical strain I've been under for the past five years, I've been paralysed
+            with uncertainty and “hauptversionsnummernerhöhungsangst”: German for “the fear of increasing the major
+            version number”.
+        </p><p>
+        I got myself into a vicious-circle of being too afraid to put anything out that couldn’t be verifiably safe… and
+        thus began the rabbit-hole that I would be falling down for the last five years.
+    </p><p>
+        First, my <a href="/dom_templating">templating methodology</a> works with XML node trees, but because
+        <a href="https://en.wikipedia.org/wiki/XPath">XPath</a> doesn’t just ‘roll off the tongue’, we do some basic
+        conversion of CSS to XPath. This was handled by a simple, ‘dumb’ search &amp; replace function. In order to test
+        the templating, I'm going to be relying on CSS to XPath translation, so I decide to migrate that to its own project
+        / package and develop a fully CSS3-compliant, fail-proof CSS to XPath translator — full test-suite and all.
+    </p><p>
+        But to test the CSS to XPath translator, I need to be able to both declare (in a compact, concise manner) and
+        compare XML node trees to test the result of an XPath query against a ‘correct’ XML tree.
+    </p><p>
+        Since building, comparing, and tearing-down hundreds of miniature XML trees is anything but pleasant, I developed a
+        very compact, highly regular (normalised) XML serialisation format (I'm actually quite proud of it, if I could
+        finish it):
+    </p>
+
+        <pre>&lt;ul &lt;li &lt;a @href some.url | Compact, serialized XML! &gt;&gt;&gt;</pre>
+
+        <p>
+            It ensures that, regardless of white-space differences, an XML node tree can be serialised into a string (easy to
+            compare) or a string example (e.g. an expected test result) can be de-serialised into an XML node tree. With this,
+            it is <em>very</em> easy to compare an XML node tree in memory (perhaps the result of a search / filter query) with
+            a short and simple string describing an XML node tree.
+        </p><p>
+        OK, but now we need to write a formal spec and test-suite for the XML serialisation format…
+    </p><p>
+        Look, I get the motivation behind <a href="https://en.wikipedia.org/wiki/Test-driven_development">Test Driven
+        Development</a>, but it doesn’t work for a lone hobbyist programmer who ‘ain’t getting paid for this’.
+    </p>
+
+
+        <h2>Version Numbers Must Be Automated Away</h2>
+        <p>
+            Humans cannot be trusted with version numbers. Version numbers combine into one thing, two different concerns: human
+            concerns, and machine concerns. To a machine, every API change is a major change; it’s an entirely different
+            product as far as the machine is concerned, but you redesign the UI (without affecting any public APIs) and the
+            machine doesn’t care.
+        </p><p>
+        Humans are prone to changing APIs, but not increment the version number correctly, because daft human concerns like
+        ‘marketing’ and ‘upgrade pricing’ interferes with the predictability and reliability of software.
+    </p><p>
+        There are two things to take away from this:
+    </p>
+        <ol>
+            <li>
+                <p>
+                    Every time a public API is changed, compilers should automatically increment a counter and
+                    <em>that</em> number is what should be used for dependency / compatibility resolution, not an
+                    arbitrary human-governed number
+                </p>
+            </li><li>
+            <p>
+                Every time you make a commit, your software has changed.<br>
+                There are no version numbers, there are only commit logs
+            </p>
+        </li>
+        </ol>
+
+
+        <h2>In Which We Return, Bleary-Eyed, From the Rabbit Hole</h2>
+        <p>
+            That brings me, finally, to how I am going to get Camen Design back on its knees again. I do not need complete
+            re-writes, paradigm-shifting breakthroughs, and holding releases back until ‘ready’ (whatever that means) or
+            when the ‘version number demands it’.
+        </p><p>
+        The only future for software is version-less, incremental improvement. I need to move away from the fear of
+        ‘incomplete’ and see my code more as ‘being brought to life’, in the public view.
+    </p><p>
+        There isn’t going to be another major, earth-shattering release of Camen Design, instead I am going to slowly
+        polish it up. I'm going to migrate systems from one thing to another, piece by piece, rather than throwing it all
+        out and starting again.
+    </p><p>
+        There is a <em>lot</em> to do, but it no longer has to hinge upon ‘the next release’.
+    </p><p>
+        If you want to watch this all happening, you may want to <a href="https://github.com/Kroc">follow me on
+        GitHub</a>.
+    </p>
+    </section>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+</article>
+</body>
+</html>
